@@ -1,0 +1,96 @@
+
+@import "application";
+@import "videoController_theme";
+
+// ******************************
+// Define variables for the scss
+// ******************************
+
+// Misc styles
+  $controlsHeight : 25px;
+  $progressBarGutterMargin : 5px;
+  $progressBarGutterHeight : $controlsHeight - $progressBarGutterMargin*2;
+  $progressBarMargin : 1px;
+  $progressBarHeight : $progressBarGutterHeight - $progressBarMargin*2;
+  $controlButtonPadding : 4px 10px;
+  $controlButtonWidth : 34px;
+  $controlTimePadding : 4px;
+  $controlFontSize : $_app_font_size;
+
+// ******************************
+// Define css classes
+// ******************************
+
+.mc-video-controls {
+  height: $controlsHeight;
+  background: $_videoController_BgColor;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 1px;
+  @include _vendor_prefix(transition,opacity 0.75s ease);
+}
+
+.mc-video-controls-centre {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.mc-video-controls-button {
+  height: $controlsHeight;
+  padding: $controlButtonPadding;
+  color: $_videoController_IconFontColor;
+  display: inline-block;
+  cursor: pointer;
+  width: $controlButtonWidth;
+}
+
+.mc-video-controls-button-right {
+  right: 0px;
+  position: absolute;
+}
+
+.mc-video-controls-time {
+  height: $controlsHeight;
+  padding: $controlTimePadding;
+  display: inline-block;
+}
+
+.mc-video-controls-pbar-bg {
+  background: $_videoController_ProgressBarGutterColor;
+  position: absolute;
+  height: $progressBarGutterHeight;
+  bottom: 0px;
+  margin: $progressBarGutterMargin;
+  cursor: pointer;
+}
+
+.mc-video-controls-pbar {
+  background: $_videoController_ProgressBarColor;
+  height: $progressBarHeight;
+  margin: $progressBarMargin;
+}
+
+.mc-bring-to-live {
+  height: $controlsHeight;
+  padding: $controlTimePadding;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mc-bring-to-live.inactive {
+  opacity: 0.7;
+}
+
+.mc-bring-to-live.active {
+  opacity: 1;
+}
+
+.mc-video-controls-pbar-nub {
+  width: 10px;
+  background: pink;
+  position: absolute;
+  height: 100%;
+  top: 0px;
+}

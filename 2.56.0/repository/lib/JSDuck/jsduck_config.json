@@ -1,0 +1,5 @@
+{
+    "--title": "Javascript UI API Documentation",
+    "--warnings": ["-link", "-no_doc", "-type_syntax"],
+	"--": "../../../src/js/"
+}

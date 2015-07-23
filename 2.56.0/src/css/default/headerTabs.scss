@@ -1,0 +1,70 @@
+@import "application";
+@import "header";
+
+
+// tab font size
+$tabFontSize : $_app_xlarge_font_size;
+
+//tab title font size
+$tabTitleFontSize : $_app_large_font_size;
+//tab title width
+$tabTitleWidth : 180px;
+
+// The tabs are styled as buttons for desktop
+$tabs_line_height: _ff($phone: $_header_height, $tablet: $_header_height, $desktop: normal);
+$tabs_width: _ff($phone: auto, $tablet: auto, $desktop: 144px);
+$tabs_margin: _ff($phone: 0, $tablet: 0, $desktop: 0 4px 0 4px);
+
+$tabs_a_padding: _ff($phone: $_header_padding, $tablet: 0 16px, $desktop: 8px 15px 0 15px);
+$tabs_a_height: _ff($phone: auto, $tablet: auto, $desktop: 40px);
+$tabs_a_margin_top: _ff($phone: 0, $tablet: 0, $desktop: 10px);
+$tabs_a_margin_bottom: _ff($phone: 0, $tablet: 0, $desktop: auto);
+
+
+.tabbed-nav {
+  height: $_header_height;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.tabs {
+  line-height: $tabs_line_height;
+  font-size: $tabFontSize;
+  color: $_header_font_color;
+  width: $tabs_width;
+  cursor: pointer;
+  display: inline-block;
+  margin: $tabs_margin;
+}
+
+.tabs-title{
+  @include app_ellide;
+  font-family: $_app_font;
+  font-size: $tabTitleFontSize;
+  line-height: $tabs_line_height;
+  color: $_header_font_color;
+  height: $_header_height;
+  width: $tabTitleWidth;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.tabs a {
+  cursor: pointer;
+  display: block;
+  height: $tabs_a_height;
+  margin-top: $tabs_a_margin_top;
+  margin-bottom: $tabs_a_margin_bottom;
+  padding: $tabs_a_padding;
+  background-color: $_header_tabs_a_bgcolor;
+   &:active {
+        background-color: $_header_active_tab_color;
+        color: $_header_activeTabFontColor;
+   }
+}
+
+// the current screen that is active
+.tabs a.active {
+  background-color: $_header_highlight;
+  color: $_header_tabFontColor;
+}

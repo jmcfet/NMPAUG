@@ -1,0 +1,40 @@
+
+# TEST CONFIGURATION TEMPLATE
+
+load:
+
+# TEST ENVIRONMENT
+  - test_env.js
+
+# NINJA
+#  - @NINJA@/apps/util/Util.js
+#  - @NINJA@/apps/core/LogConfig.js
+#  - @NINJA@/apps/core/Log.js
+    
+# TESTS    
+  - js/core/util/SimpleSetTest.js
+  - js/core/LoggerTest.js
+  - js/epg/TimeHelperTest.js
+#  - js/core/widgets/assettile/VodAssetTileTest.js  
+#  - js/es5/TestClassTest.js
+  - js/core/widgets/AssetScrollerTest.js
+
+  
+# TEST SUBJECTS
+  - ../src/js/core/util/SimpleSet.js
+  - ../src/js/core/Logger.js
+  - ../src/js/core/ImageLoader.js
+  - ../src/js/epg/TimeHelper.js
+#  - ../src/js/core/widgets/AssetScroller.js
+#  - ../src/js/core/widgets/assettile/AssetTile.js
+#  - ../src/js/core/widgets/assettile/ImageAssetTile.js
+#  - ../src/js/core/widgets/assettile/VodAssetTile.js
+#  - ../src/js/es5/TestClass.js
+  
+# REQUIRED FILES  
+  - ../src/js/core/Configuration.js  
+#  - ../src/js/core/widgets/scroller/NagraScroller.js
+#  - ../src/js/core/widgets/scroller/Scroller.js
+ 
+  ## 
+  

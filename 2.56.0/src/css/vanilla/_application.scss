@@ -1,0 +1,87 @@
+@import "form_factor";
+@import "palette";
+@import "helpers";
+// ******************************
+// Define variables for the scss
+// ******************************
+
+// The gutter is used to space elements
+$_app_gutter : _ff($phone: 10px, $tablet: 20px);
+
+$_app_screen_top : _ff($phone: 40px, $tablet: 60px);
+$_app_screen_bottom: _ff($phone: 38px, $tablet: 58px);
+
+// There are two typefaces, main for regular text, title for headings etc.
+$_app_font: vegur-regular, helvetica, arial, sans-serif;
+$_app_title_font: vegur-light, helvetica, arial, sans-serif;
+
+$_app_small_font_size: 13px;
+$_app_font_size : 16px;
+$_app_large_font_size : 20px;
+$_app_xlarge_font_size : 24px;
+$_app_xmidlarge_font_size : 28px;
+$_app_xxlarge_font_size : 36px;
+$_app_xxxlarge_font_size : 48px;
+
+// Principal colours
+$_app_text_color: $_palette_color1;
+
+// Colour for anchor elements
+$_app_anchor_color: $_palette_color6;
+
+// Colour for loading animation bg
+$_app_loading_bg_color: $_palette_color4;
+
+//application wide box shadow
+$_app_box_shadow : 0 2px 2px 0 rgba(0, 0, 0, 1);
+
+// Used to set the height of the main titles (i.e. browse screen titles) and the top of the browse scroller
+$_app_titleHeight: _ff($phone: 40px, $tablet: 70px, $desktop: 70px);
+
+// The app main title is used on the main browse screen as well as the multi-browse screen
+@mixin _app_main_title {
+  @include app_ellide;
+  color: $_app_text_color;
+  font-family: $_app_title_font;
+  font-size: _ff($phone: $_app_xlarge_font_size, $tablet: $_app_xxxlarge_font_size, $desktop: $_app_xxlarge_font_size);
+  height: $_app_titleHeight;
+  line-height: $_app_titleHeight;
+  padding: 0 $_app_gutter 0 $_app_gutter;;
+  float: left;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+//transition to slide out the category menus, and option menus on the phone
+@mixin _app_menu_transition_out {
+  @if $_form_factor == phone {
+    // Translate AND translate3d so that browsers that can support 3d (Chrome et al) use those, but others (IE9) use the 3d translate by default.
+    @include _vendor_prefix(transition,left 0.2s linear);
+    left: 100%;
+  } @else if $_form_factor == tablet {
+    @include _vendor_prefix(transform,translate(105%, 0) scale(1));
+    @include _vendor_prefix(transform,translate3d(105%, 0, 0) scale(1));
+    @include _vendor_prefix(transition,all 0.2s linear);
+  } @else {
+    @include _vendor_prefix(transform,translate(0, -110%) scale(1));
+    @include _vendor_prefix(transform,translate3d(0, -110%, 0) scale(1));
+    @include _vendor_prefix(transition, all 0.2s linear);
+  }
+}
+
+//transition to slide in the category menus, and option menus on the phone
+@mixin _app_menu_transition_in {
+  @if $_form_factor == phone {
+    bottom: 0px;
+    @include _vendor_prefix(transition,left 0.25s linear);
+    left: 0;
+  } @else if $_form_factor == tablet {
+    @include _vendor_prefix(transition,all 0.75s ease);
+  } @else {
+    @include _vendor_prefix(transform,translate(0, 0%) scale(1));
+    @include _vendor_prefix(transform,translate3d(0, 0%, 0) scale(1));
+    @include _vendor_prefix(transition,all 0.75s ease);
+  }
+}
+
+

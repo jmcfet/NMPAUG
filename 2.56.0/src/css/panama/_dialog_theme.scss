@@ -1,0 +1,26 @@
+// The top gradient color of a menu dialog
+$_dialog_GradientColor1: $_palette_color3;
+// The bottom gradient color of a menu dialog
+$_dialog_GradientColor2: $_palette_color2;
+// The background color a standard dialog
+$_dialog_Bg_color: $_palette_color5;
+// The font color used on list items within the dialog
+$_dialog_listFontColor : _ff($phone: $_palette_color8, $tablet: black);
+// The font color used on radio list items within the dialog
+$_dialog_radioLabelDarkFontColor : black;
+// The font color used on radio list items within the dialog
+$_dialog_radioLabelLightFontColor : white;
+// The color of the font used in the dialogs title bar
+$_dialog_titleBarBgColor: $_palette_color1;
+// The dialog tile bar font color
+$_dialog_titleBarFontColor: white;     //JRM
+// The dialog overlay colour
+$_dialog_overlayModalBgColor : rgba(#000000, 0.6);      //jrm  rgba(16,111,20,0.6
+// The color of the text on the settings dialog
+$_dialog_textSettingsFontColor: $_palette_color8;
+// The color of the warning icon for required fields
+$_dialog_icon_warning : $_palette_color16;
+
+$_dialog_touch_active_font_color : $_palette_color8;
+
+$_dialog_touch_opacity : 1;

@@ -1,0 +1,176 @@
+@import "application";
+@import "epg";
+@import "actionBar";
+
+// ******************************
+// Define variables for the scss
+// ******************************
+
+// This is the third parameter above, used as a padding metric below.  Abstracted here as we are not placing idividual widths above
+$mmcShadowPadding :15px;
+$mmcImageHeight: 155px;
+$mmcImageWidth : 276px;
+
+// button is square so width and height is 80px
+$mmcButtonContainerSize : 80px;
+$mmcButtonContainerPadding : 5px;
+$mmcButtonMarginLeft : 5px;
+
+
+// Variables for the Close button
+$mmcCloseButtonPadding : 8px;
+$mmcCloseButtonMargin : 15px;
+
+
+//Description
+$mmcDescHeight: 37px;
+$mmcDescPaddingBottom: 10px;
+
+// Duration
+$mmcDurationPadding: 5px;
+
+$mmcHeight : $_epg_mmc_height;
+$mmcPadding : $_app_gutter;
+
+// Title
+$mmcTitleMaxWidth: 40%;
+
+// Image
+$mmcDetailLeft: $mmcImageWidth + $_app_gutter * 2;
+$mmcDetailLeftNoImage: $_app_gutter;
+$mmcDetailRight: $_app_gutter;
+$mmcDetailTop: $_app_gutter;
+$mmcDetailBottom: $_app_gutter;
+
+
+
+
+
+// ******************************
+// Define css classes
+// ******************************
+
+.epg-mmc {
+  @include box_shadow;
+  background-color: $_epg_miniMediaCardBgColor;
+  bottom: 0;
+  height: $mmcHeight;
+  padding: $mmcPadding;
+  position: absolute;
+  width: 100%;
+}
+
+.epg-mmc-detail {
+	position: absolute;
+  left: $mmcDetailLeft;
+  right: $mmcDetailRight;
+  top: $mmcDetailTop;
+  bottom: $mmcDetailBottom;
+  white-space: nowrap;
+}
+
+.epg-mmc-noimage {
+  left: $mmcDetailLeftNoImage;
+}
+
+.epg-mmc-title {
+	@include app_ellide;
+  font-family: $_app_title_font;
+  font-size: $_app_xmidlarge_font_size;
+  font-weight: normal;
+}
+
+.epg-mmc-image-container {
+  @include box_shadow;
+  background: $_epg_miniMediaCardImageBgColor;
+  float: left;
+  /* Size is 16: 9, height is MMC height - padding */
+  height: $mmcImageHeight;
+  width: $mmcImageWidth;
+  position: relative;
+}
+
+.epg-mmc-button-container {
+  @include app_ellide;
+  background: $_epg_miniMediaCardButtonContainerBgColor;
+  cursor: pointer;
+  width: $mmcButtonContainerSize;
+  height: $mmcButtonContainerSize;
+  padding: $mmcButtonContainerPadding;
+  margin-left: $mmcButtonMarginLeft;
+  vertical-align: top;
+  position: relative;
+  text-align: center;
+  color: $_epg_miniMediaCardButtonContainerFontColor;
+  &:active {
+    background-color: $_epg_highlight_BgColor;
+  }
+}
+
+.mmc-button-text{
+  @include app_ellide;
+}
+
+.epg-mmc-close-button {
+  cursor: pointer;
+  float:right;
+  padding: $mmcCloseButtonMargin;
+  top: -20px;
+  right: -20px;
+  position: relative;
+  &:active {
+    background-color: $_epg_highlight_BgColor;
+  }
+}
+
+.epg-mmc-desc {
+  @include app_ellide;
+  height: $mmcDescHeight;
+  padding-bottom: $mmcDescPaddingBottom;
+}
+
+.epg-mmc-time-details {
+  float: left;
+  padding-right: $_app_gutter;
+}
+
+.epg-mmc-time {
+  font-family: $_app_title_font;
+  font-size: $_app_xmidlarge_font_size;
+}
+
+.epg-mmc-duration {
+  padding-left: $mmcDurationPadding;
+}
+
+.epg-mmc-action-bar-scroller {
+  @include _actionBar;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.epg-mmc-action-bar {
+  width: 100%;
+}
+
+.epg-mmc-action-bar span {
+  text-transform: uppercase;
+}
+
+.epg-mmc-action-bar i {
+  font-size: $_actionBar_IconSize;
+  margin: $_actionBar_IconMargin;
+  color: $_actionBar_IconFontColor;
+}
+
+.mini-card-button-container{
+  display: block;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: $mmcButtonContainerSize;
+  top: 50%;
+  margin-top: -$mmcButtonContainerSize/2;
+}

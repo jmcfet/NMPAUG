@@ -1,0 +1,158 @@
+<project>	
+	
+	<!-- Unit test configuration files -->
+	<property name="unit.test.conf.template" value="test/unit.test.conf.template" />
+	<property name="unit.test.conf" value="test/unit.test.conf" />
+	<property name="unit.test.to.run" value="all" />
+	<property name="unit.test.results.output" value="${basedir}/test/results/unit" />
+	<target name="create.unit.test.conf" description="Create unit test configuration file">
+		<copy file="${unit.test.conf.template}" tofile="${unit.test.conf}" overwrite="true" force="true" />
+		<replace file="${unit.test.conf}" token="${ninja.placeholder}" value="${ninja.location}" />
+	</target>
+
+	<!-- Unit test configuration files -->
+	<property name="dom.test.conf.template" value="test/dom.test.conf.template" />
+	<property name="dom.test.conf" value="test/dom.test.conf" />
+	<property name="dom.test.to.run" value="all" />
+	<property name="dom.test.results.output" value="${basedir}/test/results/dom" />
+	<target name="create.dom.test.conf" description="Create dom test configuration file">
+		<copy file="${dom.test.conf.template}" tofile="${dom.test.conf}" overwrite="true" force="true" />
+		<replace file="${dom.test.conf}" token="${ninja.placeholder}" value="${ninja.location}" />
+	</target>	
+	 
+	<!--override to change-->
+	<property name="ninja.placeholder" value="@NINJA@" />
+	<property name="ninja.location" value="${tmp}/jsfw" relative="true" basedir="test" />
+
+	<!-- Config for JSTestDriver -->
+	<property name="jstestdriver.jar" value="repository/lib/JsTestDriver/JsTestDriver-1.3.5.jar" />
+	<property name="jstestdriver.server" value="http://localhost" />
+	<property name="jstestdriver.port" value="8100" />
+
+	<!-- Config for the the dom test static resource server -->
+	<property name="nanohttpd.jar" value="repository/lib/NanoHTTPD/NanoHTTPD.jar" />
+	<property name="nanohttpd.port" value="8200" />
+	<property name="nanohttpd.root" value="test/static" />
+
+	<!-- Command line and argument for phantom browser -->
+	<condition property="browser.phantom" value="repository/lib/PhantomJS/phantomjs-1.8.1-windows/phantomjs.exe" else="repository/lib/PhantomJS/phantomjs-1.9.1-linux-x86_64/bin/phantomjs" >
+		<os family="windows" />
+	</condition>
+	
+	<!-- need to change the permissions if on unix -->
+	<chmod perm="+x" file="${browser.phantom}" osfamily="unix"/>
+	
+	<property name="browser.phantom" value="repository/lib/PhantomJS/phantomjs-1.8.1-windows/phantomjs.exe" />
+	<property name="browser.phantom.argument" value=";test/phantomjs-jstd-bridge.js" />
+
+	<!-- Command line and argument for Chrome browser -->
+	<property name="browser.chrome" value="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" />
+
+	<!-- Argument for browsers to be captured for unit tests -->
+	<property name="browser" value="${browser.phantom}${browser.phantom.argument}" />
+	<!--<property name="browser" value="${browser.chrome},${browser.phantom}${browser.phantom.argument}" />-->
+	<!--<property name="browser" value="${browser.chrome}" />-->
+	
+	<target name="expand.jsfw" description="Expand JSFW ZIP into temp folder">
+		<delete quiet="true">
+			<fileset dir="${tmp}/jsfw" />
+		</delete>
+		<unzip src="${jsfw.src}.zip" dest="${tmp}/jsfw">
+			<patternset>
+				<include name="src/**/*.*" />
+			</patternset>
+			    <mapper>
+			        <globmapper from="src/*" to="*"/>
+			    </mapper>			
+		</unzip>
+	</target>
+
+	<target name="start.unit.test.server" description="Start unit test server">
+		<java jar="${jstestdriver.jar}" failonerror="true" fork="true" timeout="300000">
+			<arg value="--config" />
+			<arg value="${unit.test.conf}" />
+			<arg value="--port" />
+			<arg value="${jstestdriver.port}" />
+			<arg value="--browser" />
+			<arg value="${browser}" />
+		</java>
+	</target>
+
+	<target name="run.all.unit.tests" description="Run all Unit Tests" depends="create.unit.test.conf,expand.jsfw">
+		<delete dir="${unit.test.results.output}" />
+		<mkdir dir="${unit.test.results.output}" />
+		<java jar="${jstestdriver.jar}" failonerror="true" fork="true">
+			<redirector outputproperty="unit.test.results" alwayslog="true" />
+			<arg value="--config" />
+			<arg value="${unit.test.conf}" />
+			<arg value="--port" />
+			<arg value="${jstestdriver.port}" />
+			<arg value="--browser" />
+			<arg value="${browser}" />
+			<arg value="- -server" />
+			<arg value="${jstestdriver.server}:${jstestdriver.port}" />
+			<arg value="--tests" />
+			<arg value="${unit.test.to.run}" />
+			<arg value="--verbose" />
+			<arg value="--testOutput" />
+			<arg value="${unit.test.results.output}" />
+		</java>
+				
+		<fail message="Unit tests failed">
+			<condition>
+				<contains string="${unit.test.results}" substring="[FAILED]" />
+			</condition>
+		</fail>
+				
+	</target>
+	
+	<target name="run.all.dom.tests" description="Run all Unit Tests" depends="create.dom.test.conf">
+		<delete dir="${dom.test.results.output}" />
+		<mkdir dir="${dom.test.results.output}" />
+		<parallel>
+			<daemons>
+				<java jar="${nanohttpd.jar}" fork="true" output="${dom.test.results.output}/nano_out.txt">
+					<arg value="-p" />
+					<arg value="${nanohttpd.port}" />
+					<arg value="-d" />
+					<arg value="${nanohttpd.root}" />
+				</java>
+			</daemons>
+			<sequential>
+				<java jar="${jstestdriver.jar}" failonerror="true" fork="true" >
+					<redirector outputproperty="dom.test.results" alwayslog="true" />					
+					<arg value="--config" />
+					<arg value="${dom.test.conf}" />
+					<arg value="--port" />
+					<arg value="${jstestdriver.port}" />
+					<arg value="--browser" />
+					<arg value="${browser}" />
+					<arg value="- -server" />
+					<arg value="${jstestdriver.server}:${jstestdriver.port}" />
+					<arg value="--tests" />
+					<arg value="${dom.test.to.run}" />
+					<arg value="--verbose" />
+					<arg value="--testOutput" />
+					<arg value="${dom.test.results}" />
+				</java>
+			</sequential>
+		</parallel>
+		
+		<fail message="Dom tests failed">
+			<condition>
+				<contains string="${dom.test.results}" substring="[FAILED]" />
+			</condition>
+		</fail>		
+	</target>
+
+	<target name="start.nanohttpd" description="Start NanoHTTPD Server">
+		<java jar="${nanohttpd.jar}" fork="true">
+			<arg value="-p" />
+			<arg value="${nanohttpd.port}" />
+			<arg value="-d" />
+			<arg value="${nanohttpd.root}" />
+		</java>
+	</target>
+	
+</project>
+

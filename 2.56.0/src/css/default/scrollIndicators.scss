@@ -1,0 +1,30 @@
+@import "application";
+@import "scrollIndicators_theme";
+
+// The height/width of a scroll indicator
+$indicatorSize: 5px;
+//The gutter for the indicators
+$indicatorContainerGutter: $_app_gutter;
+
+.scroller-horizontal-indicator-container {
+  background-color: $_scrollIndicatorContainerBgColor;
+  left: $indicatorContainerGutter;
+  right: $indicatorContainerGutter;
+  position: absolute;
+  top: 50%;
+}
+.scroller-vertical-indicator-container {
+  background-color: $_scrollIndicatorContainerBgColor;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+.scroller-vertical-indicator {
+  background-color: $_scrollIndicator_indicatorColor;
+  width: $indicatorSize;
+}
+.scroller-horizontal-indicator {
+  background-color : $_scrollIndicator_indicatorColor;
+  height: $indicatorSize;
+}

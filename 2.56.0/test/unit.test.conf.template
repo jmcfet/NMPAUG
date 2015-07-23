@@ -1,0 +1,67 @@
+
+# TEST CONFIGURATION TEMPLATE
+
+load:
+
+# TEST ENVIRONMENT
+  - test_env.js
+
+# NINJA
+  - @NINJA@/apps/util/Util.js
+  - @NINJA@/apps/core/LogConfig.js
+  - @NINJA@/apps/core/Log.js  
+      
+# REQUIRED FILES
+  - ../src/js/core/Logger.js
+    
+# TESTS    
+
+  - js/core/util/SimpleSetTest.js
+  - ../src/js/core/util/SimpleSet.js
+
+  - js/core/util/StringHelperTest.js
+  - ../src/js/core/util/StringHelper.js
+
+  - js/core/util/FormatterTest.js
+  - ../src/js/core/util/Formatter.js
+
+  - js/core/LoggerTest.js
+  - ../src/js/core/Logger.js
+
+#  - js/epg/TimeHelperTest.js
+#  - ../src/js/epg/util/TimeHelper.js
+
+#  - js/core/LifecycleHandlerTest.js
+#  - ../src/js/core/LifecycleHandler.js
+
+  - js/core/menudata/MenuNodeTest.js
+  - ../src/js/core/menudata/MenuNode.js
+  
+  - js/core/menudata/MockMDS.js
+  - js/core/menudata/MockParentalControls.js  
+  - js/core/menudata/MockBTVDataProvider.js
+  - js/core/menudata/MenuDataTest.js
+  - ../src/js/core/menudata/MDSAdapter.js
+  - ../src/js/core/menudata/MenuData.js
+  - ../src/js/core/menudata/CatalogueAssetFetcher.js
+  - ../src/js/core/menudata/MenuNode.js
+  - ../src/js/core/menudata/CatalogueNode.js
+  - ../src/js/core/menudata/RootNode.js  
+  - ../src/js/core/menudata/AliasNode.js
+  - ../src/js/core/menudata/CustomNode.js
+  - ../src/js/core/mediaitem/MediaItem.js
+  - ../src/js/core/mediaitem/VODItem.js
+  - ../src/js/core/mediaitem/SDPVODItem.js
+  - ../src/js/core/mediaitem/MDSVODItem.js
+  
+  - js/core/menudata/MockMDSCaptured070813.js  
+  - js/core/menudata/MenuDataTestCaptured070813.js  
+    
+#  - js/core/parentalcontrols/ParentalControlsTest.js
+#  - @NINJA@/platform/ca/ParentalControl.js
+#  - ../src/js/core/parentalcontrols/ParentalControls.js
+
+  - js/core/DeviceTest.js
+  - ../src/js/core/Device.js
+
+timeout: 300

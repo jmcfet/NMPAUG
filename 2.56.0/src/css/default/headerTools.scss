@@ -1,0 +1,61 @@
+@import "application";
+@import "header";
+
+$toolBarPadding: _ff($phone: 0 0 0 0, $tablet: 0 $_app_gutter/2 0 0, $desktop: 0 $_app_gutter 0 0);
+$toolPadding: _ff($phone: 0 $_app_gutter/2 0 $_app_gutter/2, $tablet: 0 12px 0 12px, $desktop: 0 10px 0 10px);
+$menuButtonPadding: _ff($phone: 4px $_app_gutter, $tablet: 0);
+
+.toolbar {
+  padding: $toolBarPadding;
+  height: $_header_height;
+  color: $_header_font_color;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.tools {
+  display: inline-block;
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.tools.deactivate {
+  cursor:default;
+  opacity:0.6;
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.tools.active {
+  background-color: $_header_highlight;
+}
+
+// The li that contains the inline search (desktop) has a margin to space it
+.tools-inline-search {
+  margin-left: 10px;
+}
+
+.tools {
+  padding : $toolPadding;
+  cursor: pointer;
+  display: inline-block;
+  &:active {
+    background-color: $_header_tools_active_color;
+  }
+}
+
+.tools sup{
+  top: -1.5em;
+  color: white;
+}
+
+.menu-button{
+  padding: $menuButtonPadding;
+  &:active {
+    background : $_header_tools_active_color;
+  }
+}

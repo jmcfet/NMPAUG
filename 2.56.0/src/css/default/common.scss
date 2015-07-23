@@ -1,0 +1,163 @@
+@import "application";
+
+// ******************************
+// Define variables for SCSS
+// ******************************
+
+$bodyColor: $_app_text_color;
+$bodyFont: $_app_font;
+$bodyFontSize: $_app_font_size;
+$anchorColor: $_app_anchor_color;
+$headingFont: $_app_title_font;
+$tapHighlightColor : transparent;
+
+// ******************************
+// Define css for elements
+// ******************************
+* {
+  @include _vendor_prefix(box-sizing, border-box);
+}
+
+body {
+  /* prevent users from select-dragging the app */
+  @include _vendor_prefix(user-select, none);
+  color: $bodyColor;
+  font-family: $bodyFont;
+  font-size: $bodyFontSize;
+	margin: 0;
+	padding: 0;
+  -webkit-tap-highlight-color: $tapHighlightColor;
+}
+
+// Clickable elements other than form fields should be in <a> tags
+
+a {
+	color: $anchorColor;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+// Lists of elements should be in <ul> and <li> tags
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Headings
+
+h1, h2, h3, h4 {
+	font-family: $headingFont;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+// Video playback
+
+video {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+// ******************************
+// Define css for utlity classes
+// ******************************
+
+// Workaround for IE9 where scrollbar placement is incorrect
+.content-box-sizing {
+  box-sizing: content-box;
+}
+
+.centred-in-container {
+	left: 50%;
+	position: relative;
+	top: 50%;
+}
+
+.centred-in-container-abs {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+}
+
+.left-in-container {
+	left: 0;
+}
+
+.right-in-container {
+	right: 0;
+}
+
+.up-in-container {
+	top: 0;
+}
+
+.down-in-container {
+	bottom: 0px;
+}
+
+.display-as-table {
+	display: table;
+	height: 100%;
+}
+
+.display-as-table-cell {
+	display: table-cell !important;
+	text-align: center;
+	vertical-align: middle !important;
+}
+
+.flipped-left {
+	float: left;
+}
+
+.flipped-right {
+	float: right;
+}
+
+.no-float {
+	float: none;
+}
+
+.clear-left {
+	clear: left;
+}
+
+.clear-right {
+	clear: right;
+}
+
+.clear-both {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: inherit;
+}
+
+.top25 {
+	position: relative;
+	top: 25%;
+}
+
+.top50 {
+	position: relative;
+	top: 50%;
+}
+
+.webkit-render-fix {
+  -webkit-transform: translate3d(0,0,0);
+}
+

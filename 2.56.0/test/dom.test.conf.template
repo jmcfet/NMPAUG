@@ -1,0 +1,33 @@
+
+# TEST CONFIGURATION TEMPLATE
+
+load:
+
+# TEST ENVIRONMENT
+  - test_env.js
+
+# NINJA
+  - @NINJA@/apps/util/Util.js
+  - @NINJA@/apps/core/LogConfig.js
+  - @NINJA@/apps/core/Log.js
+  
+# REQUIRED FILES
+  - ../src/js/core/Logger.js  
+  - ../src/bundles/defaultStrings.js
+  - ../src/js/core/util/StringHelper.js  
+  - ../src/js/core/Configuration_nmp.js
+  - ../src/js/core/ImageLoader.js
+  - ../src/js/core/util/HtmlHelper.js
+  - ../src/js/core/widgets/assettile/AssetTile.js
+  - ../src/js/core/widgets/assettile/ImageAssetTile.js  
+
+    
+# TESTS    
+  - js/core/widgets/assettile/VodAssetTileTest.js
+  - ../src/js/core/widgets/assettile/VodAssetTile.js
+
+  
+    
+ 
+
+  

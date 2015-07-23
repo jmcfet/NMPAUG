@@ -1,0 +1,27 @@
+// The color used to highlight active elements on the header bar
+$_header_highlight: $_palette_color7;
+// The top gradient color of the header
+$_header_gradientColor1: $_palette_color1;
+// The bottom gradient color of the header
+$_header_gradientColor2: $_palette_color1;
+// The background color of the tabs. Only solid if desktop
+$_header_tabs_a_bgcolor: _ff($phone: transparent, $tablet: transparent, $desktop: $_palette_color8);
+// The font color of the header
+$_header_font_color: $_palette_color6;
+//The color of an active tab
+$_header_active_tab_color : $_palette_color7;
+//The colour of the toolbar icons
+$_header_toolsFontColor: $_palette_color6;
+// The colour of the active tabs font color
+$_header_tabFontColor: $_palette_color6;
+// The colour of the non active tab font color
+$_header_activeTabFontColor: $_palette_color6;
+// The color of the back button when the active psuedo class is applied
+$_header_back_button_active_color : $_palette_color7;
+// The color of the tools button when the active psuedo class is applied
+$_header_tools_active_color : $_palette_color7;
+
+//Used for main header and dialog title bars
+@mixin _header_background {
+  @include _simple_gradient($_header_gradientColor1, 0%, $_header_gradientColor2, 99%);  
+}

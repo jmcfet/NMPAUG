@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'vegur-bold';
+	font-style: normal;
+	font-weight: normal;
+	src: url("vegur-bold-webfont.eot");
+	src: url("vegur-bold-webfont.eot?#iefix") format("embedded-opentype"), url("vegur-bold-webfont.woff") format("woff"), url("vegur-bold-webfont.ttf") format("truetype"), url("vegur-bold-webfont.svg#vegurbold") format("svg");
+}
+
+@font-face {
+	font-family: 'vegur-light';
+	font-style: normal;
+	font-weight: normal;
+	src: url("vegur-light-webfont.eot");
+	src: url("vegur-light-webfont.eot?#iefix") format("embedded-opentype"), url("vegur-light-webfont.woff") format("woff"), url("vegur-light-webfont.ttf") format("truetype"), url("vegur-light-webfont.svg#vegurlight") format("svg");
+}
+
+@font-face {
+	font-family: 'vegur-regular';
+	font-style: normal;
+	font-weight: normal;
+	src: url("vegur-regular-webfont.eot");
+	src: url("vegur-regular-webfont.eot?#iefix") format("embedded-opentype"), url("vegur-regular-webfont.woff") format("woff"), url("vegur-regular-webfont.ttf") format("truetype"), url("vegur-regular-webfont.svg#vegurregular") format("svg");
+}

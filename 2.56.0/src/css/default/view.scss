@@ -1,0 +1,69 @@
+@import "application";
+// ******************************
+// Define variables for the scss
+// ******************************
+$loadingAnimationBgColor: rgba($_app_loading_bg_color, 0.6);
+$loadingAnimationBorderRadius: 10px;
+$loadingAnimationWidth: 100px;
+$loadingAnimationHeight: 100px;
+// The loading animation is in the centre of the screen
+$loadingAnimationLeft: 50%;
+$loadingAnimationTop: 50%;
+$loadingAnimationMarginLeft: -($loadingAnimationWidth / 2);
+$loadingAnimationMarginTop: -($loadingAnimationHeight / 2);
+// The screen will start after the height of the header
+$screenTop: $_app_screen_top;
+$screenOverflowX: _ff($phone: hidden, $tablet: hidden, $desktop: hidden);
+$screenOverflowY: _ff($phone: hidden, $tablet: hidden, $desktop: auto);
+
+
+// ******************************
+// Define css for view classes
+// ******************************
+.master-container {
+	bottom: 0;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	@if $_form_factor == desktop {
+	  min-width: 980px;
+	}
+}
+
+.loading-animation {
+  background-color: $loadingAnimationBgColor;
+  border-radius: $loadingAnimationBorderRadius;
+	width: $loadingAnimationWidth;
+	height: $loadingAnimationHeight;
+	left: $loadingAnimationLeft;
+	top: $loadingAnimationTop;
+	margin-left: $loadingAnimationMarginLeft;
+	margin-top: $loadingAnimationMarginTop;
+	position: absolute;
+	text-align: center;
+}
+
+.loading-animation i {
+  line-height: $loadingAnimationHeight;
+}
+
+/** All screens have same styles **/
+
+.screen {
+  @include _screen_background;
+  top: $screenTop;
+	position: absolute;
+	overflow-x: $screenOverflowX;
+	overflow-y: $screenOverflowY;
+	bottom: 0;
+	width: 100%;
+}
+
+.scroller {
+	height: 100%;
+	width: 100%;
+	border: 1px solid transparent;
+}

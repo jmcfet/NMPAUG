@@ -1,0 +1,12 @@
+@import "application";
+@import "footer_theme";
+
+// The height of the footer different size for different devices
+$footerHeight: $_app_screen_bottom;
+.footer {
+  background-color: $_footer_BackgroundColor;
+  height: $footerHeight;
+  width: 100%;
+  bottom: 0;
+  position : absolute;
+}

@@ -1,0 +1,12 @@
+// The menu gradient top colour
+$_menu_gradientColor1: rgba($_palette_color3, _ff($phone: 1, $tablet: 0.8));
+// The menu gradient bottom colour
+$_menu_gradientColor2: $_palette_color2;
+// The active category color
+$_menu_categoryActiveColor: $_palette_color1;
+// If a child element is active this is the colour
+$_menu_subCategoryActiveColor: $_palette_color5;
+// The font color of the menu
+$_menu_fontColor: $_palette_color8;
+// The colour applied when a user selects a menu item
+$_menu_touch_highlight : $_palette_color5;

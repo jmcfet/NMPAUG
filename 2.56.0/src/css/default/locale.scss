@@ -1,0 +1,15 @@
+/**
+ *	Overrides for Spanish styles mainly for text strings
+ */
+
+$esMcButtonWidth: 135px;
+$esMiniMediaButtonWidth: 90px;
+
+body.es_es .mc-button-container{
+	width: $esMcButtonWidth;
+}
+
+body.es_es .mini-card-button-container .mc-button-container{
+  width: $esMiniMediaButtonWidth;
+}
+

@@ -1,0 +1,46 @@
+@import "application";
+@import "epg";
+
+// day bar styles - the bar which holds the day of the week
+// day bar height - the line height is also the same so uses same variable
+$dayBarHeight: _ff($phone: 30px, $tablet: 52px);
+
+// minimum width of each day element in the day bar
+$dayBarMinWidth: 150px;
+
+.epg-day-bar-element {
+  background-color: $_epg_dayBarBgColor;
+  min-width: $dayBarMinWidth;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  @if $_form_factor == desktop{
+    &:hover {
+      background-color: $_epg_midHoverColor;
+    }
+    @include _vendor_prefix(transition, background-color .15s ease-out);
+  }
+}
+
+.epg-day-bar-element.active {
+  background-color: $_epg_highlight_BgColor;
+}
+
+.epg-day-bar-element.highlight {
+  background-color: $_epg_highlight_BgColor;
+}
+
+.epg-scroller-container-daybar {
+  background-color: $_epg_dayBarBgColor;
+}
+
+.epg-day-bar {
+  height: $_epg_fixed_elements_height;
+  background-color: $_epg_dayBarBgColor;
+  line-height: $_epg_fixed_elements_height;
+  white-space: nowrap;
+}
+
+.epg-day-bar-highlight{
+   background-color: $_epg_activeElementBgColor;
+}

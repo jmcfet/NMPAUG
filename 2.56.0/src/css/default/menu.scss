@@ -1,0 +1,111 @@
+@import "application";
+@import "menu_theme";
+// ******************************
+// Define variables for the scss
+// ******************************
+
+// The menu colours (used in categories and phone option menus)
+
+$activeSpanMarginLeft : 0px - -10px;
+$catMenuMargin : _ff($phone: 0 0 0 0px, $tablet: 0 0 0 -15px);
+$catMenuHeight : 52px;
+$catMenuWidth : _ff($phone: 100%, $tablet: 300px);
+$catMenuLIPadding : _ff($phone: 0 0 0 10px, $tablet: 0 0 0 30px);
+$catMenuULMargin : _ff($phone: 0 0 0 0, $tablet: 0 0 0 -30px);
+$catMenuULPadding : _ff($phone: 0 0 0 20px, $tablet: 0 0 0 50px);
+$catMenuSpanPadding : 0 $_app_gutter 0 0;
+$categoryMenuScrollerBottom: _ff($phone: 0, $tablet: $_app_screen_bottom);
+$categoriesFontSize: $_app_large_font_size;
+
+// For desktop the menu should be positioned below the first category title
+$menuScrollerTop : _ff($phone: 0, $tablet: 0, $desktop: $_app_titleHeight);
+
+// ******************************
+// Define variables for property values
+// ******************************
+
+@mixin browse_categories_opacity {
+	opacity: 0.6;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+}
+
+@mixin browse_categories_active_opacity {
+	opacity: 1;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+
+// ******************************
+// Define css classes
+// ******************************
+
+.browse-category-menu-scroller {
+	@include _simple_gradient($_menu_gradientColor1, 50%, $_menu_gradientColor2, 100%);;
+	bottom: $categoryMenuScrollerBottom;
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+	@if $_form_factor == phone {
+  		width: 100%;
+  		top: $_app_screen_top;
+  		overflow: hidden;
+	}@else{
+		right: 0;
+		margin-top: $menuScrollerTop;
+	}
+}
+
+.browse-category-menu-scroller.transition-out {
+  @include _app_menu_transition_out;
+}
+
+.browse-category-menu-scroller.transition-in {
+  @include _app_menu_transition_in;
+}
+
+.category-menu {
+  margin: $catMenuMargin;
+  width: $catMenuWidth;
+  font-size: $categoriesFontSize;
+  color : $_menu_fontColor;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.category-menu > li {
+  padding: $catMenuLIPadding;
+}
+
+.category-menu ul > li{
+  margin: $catMenuULMargin;
+  padding: $catMenuULPadding;
+}
+
+.category-menu ul > li.active{
+  background: $_menu_subCategoryActiveColor;
+}
+
+.category-menu span{
+  @include browse_categories_opacity;
+  @include app_ellide;
+  height : $catMenuHeight;
+  line-height: $catMenuHeight;
+  padding: $catMenuSpanPadding;
+  display: block;
+}
+
+.category-menu li ul {
+  display: _ff($phone: block, $tablet: none);
+}
+
+.category-menu li.active{
+  @include box_shadow;
+  background-color: $_menu_categoryActiveColor;
+}
+
+.category-menu li.active span{
+  @include browse_categories_active_opacity;
+}
+
+.category-menu-touch-active {
+  background-color: $_menu_touch_highlight;
+}

@@ -1,0 +1,6 @@
+//The text color used for the search suggestions
+$_search_suggestionTextColor : #000000;
+// The background color used for the search suggestions
+$_search_suggestionBGColor:$_palette_color8;
+$_search_otherSearchesHoverBGColor:$_palette_color5;
+$search_icon_color:#3a3531;     //JRM 

@@ -1,0 +1,25 @@
+@import "_actionBar_theme";
+// Font size for text elements
+$__actionBar_FontSize : $_app_font_size;
+// The height of the action bar
+$__actionBar_Height : 50px;
+// The alignment of text - left for tablet and desktop centre for phone
+$__actionBar_Alignment: _ff($phone: center, $tablet: left, $desktop: left);
+// put some space on the right in case we have text for the icon
+$_actionBar_IconMargin: _ff($phone: 0 0 0 0, $tablet: 0 $_app_gutter 0 0, $desktop: 0 $_app_gutter 0 0);
+// Font size for icon elements
+$_actionBar_IconSize : $_app_xlarge_font_size;
+// Padding between Icons
+$_actionBar_IconPadding : 3px $_app_gutter;
+
+@mixin _actionBar {
+  @include box_shadow;
+  background: $_actionBar_BgColor;
+  height: $__actionBar_Height;
+  line-height:  $__actionBar_Height;
+  text-align: $__actionBar_Alignment;
+  font-size: $__actionBar_FontSize;
+  color: $_actionBar_FontColor;
+  overflow: hidden;
+  white-space: nowrap;
+}

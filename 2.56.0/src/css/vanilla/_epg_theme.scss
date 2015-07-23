@@ -1,0 +1,70 @@
+// The colour used to represent a blocked epg event
+$_epg_blockedColor : rgba(#708090,1);
+// The colour used for a hover effect
+$_epg_midHoverColor: $_palette_color13;
+// The colour used for a different hover effect
+$_epg_highHoverColor: $_palette_color12;  //#00549C
+// The colour used to highlight a epg event
+$_epg_highlight_BgColor: $_palette_color7;
+// Background color of the day bar
+$_epg_dayBarBgColor: $_palette_color6;
+// The background color of the top bar
+$_epg_topBarBgColor: $_palette_color7;
+// The color of the border surrounding an event
+$_epg_eventBorderColor: $_palette_color6;
+// The epg event background color. Used for all events except current events
+$_epg_eventBgColor: $_palette_color5;
+// The background color of the now bar;
+$_epg_nowBarBgColor: $_palette_color6;
+// The background color of the epg screen
+$_epg_screenBgColor: $_palette_color6;
+// An epg element that has been clicked
+$_epg_activeElementBgColor: $_palette_color7;
+// An epg npvr element that has been clicked
+$_epg_activeNpvrElementBgColor: $_palette_color21;
+// The color that represents all events that are currently on
+$_epg_nowEvent: $_palette_color1;
+// The font color of the now event
+$_epg_nowEventFontColor: $_palette_color6;
+// The background color of the mini media card
+$_epg_miniMediaCardBgColor: $_palette_color14;
+// The background color of the mini media card
+$_epg_miniMediaCardImageBgColor: $_palette_color6;
+// The color of the button container on the mini media card
+$_epg_miniMediaCardButtonContainerBgColor: $_palette_color12;
+// The color of the strip below the current hour
+$_epg_timeBarActiveBorderColor : $_palette_color6;
+// The background color of a channel item
+$_epg_channelItemBgColor: $_palette_color6;
+// The background color of an unsubscribed channel item
+$_epg_unSubscribedchannelItemBgColor: $_palette_color16;
+// The background color of an unsubscribed epg event
+$_epg_unSubscribedEventItemBgColor: $_palette_color16;
+// The background color of an unsubscribed epg event
+$_epg_unSubscribedEventItemTextColor: $_palette_color17;
+// The background color of the time bar
+$_epg_timeBarBackgroundColor: $_palette_color8;
+// The background color of the channel bar
+$_epg_channelBarBgColor: $_palette_color14;
+// Variables  for the overlaid 'Play' arrow button
+$_epg_miniMediaCardButtonContainerBgColor: $_palette_color12;
+$_epg_miniMediaCardButtonContainerFontColor: $_palette_color6;
+// The background color of the arrows that scroll the epg
+$_epg_ScrollArrowsBgColor: $_palette_color13;
+// The background color of the arrows that scroll the epg when user hovers
+$_epg_ScrollArrowsHoverBgColor: $_palette_color12;
+// The background color of the arrows that take you to next/previous day
+$_epg_ArrowsBgColor: $_palette_color12;
+// media button font color
+$_epg_mediaButtonFontColor: $_palette_color6;
+// The color of the time span elements
+$_epg_timeSpanColor: $_palette_color6;
+// The color of the navigation elements
+$_epg_navigateColor: inherit;
+//NPVR Recording colour for epg event
+$_epg_recordingColor : $_palette_color18;
+$_epg_recording_highlight_color : lighten($_epg_recordingColor, 20%);
+//Catchup colour for epg event
+$_epg_catchupColor : $_palette_color19;
+$_epg_catchupFontColor : $_palette_color20;
+$_epg_catchup_highlight_color : lighten($_epg_catchupColor, 20%);

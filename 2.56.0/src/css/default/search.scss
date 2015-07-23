@@ -1,0 +1,266 @@
+@import "application";
+@import "ui-elements";
+@import "search_theme";
+
+// ******************************
+// Define variables for the scss
+// ******************************
+
+$resultsPadding: $_app_gutter;
+
+$elementsTop : _ff($phone: $_app_gutter/2, $tablet: $_app_gutter/2);
+$elementsMargin :  _ff($phone: 0 0 $_app_gutter/2 0, $tablet: 0 0 $_app_gutter/2 0);
+
+$inputHeight : _ff($phone: 30px, $tablet: 50px);
+$inputPaddingL : _ff($phone: 50px, $tablet: 50px, $desktop: auto);
+$inputPaddingR : _ff($phone: 50px, $tablet: 50px, $desktop: 50px);
+
+$suggestionTopBorder : 1px solid $_search_suggestionTextColor;
+$suggestionPadding : 0 0 0 10px;
+
+$buttonWidth : _ff($phone: 50px, $tablet: 200px);
+$browseContTop : $_ui_largeButtonHeight;
+$scrollContTop : $_ui_largeButtonHeight + $_app_gutter;
+
+$inlineSearchIconMarginRight: 10px;
+$inlineSearchIconWidth: 30px;
+$inlineSearchIconMargin: 0 $inlineSearchIconMarginRight 0 0;
+
+$inlineSearchInputHeight: 32px;
+
+$inlineSearchSuggestionsWidth: _ff($phone: 100%, $tablet: 100%, $desktop: 190%);
+
+$inlineSearchContainerWidth : _ff($phone: 100%, $tablet: 100%, $desktop: auto);
+$inlineSearchContainerTop :  _ff($phone: 2.5px, $tablet: 12.5px, $desktop: auto);
+$inlineSearchContainerPos :  _ff($phone: absolute, $tablet: absolute, $desktop: relative);
+$inlineSearchContainerMargin : _ff($phone: auto, $tablet: auto, $desktop: 0 0 0 10px);
+$inlineSearchContainerIconSearchPadding : _ff($phone: 0 35px 0 0, $tablet: 0 45px 0 0, $desktop :auto);
+$inlineSearchContainerIconSearchRight : _ff($phone: 0px, $tablet: 0px, $desktop :10px);
+$inlineSearchContainerVisibility : _ff($phone: hidden, $tablet: hidden, $desktop :visible);
+$inlineSearchContainerOpacity : _ff($phone: 0, $tablet: 0, $desktop :1);
+
+// ******************************
+// Define css classes
+// ******************************
+
+.search-input-header{
+  @include _ui_input_small;
+  left: $_app_gutter;
+  margin: 0px 10px 13px 4px; // override margin in _ui_input_small
+  top: $elementsTop;
+  height: 30px; // override height in _ui_input_small
+}
+
+.search-container{
+  left: $_app_gutter;
+  top: $elementsTop;
+  height: $inputHeight;
+  position: relative;
+  background: white;
+  @include _ui_full_border_radius;
+}
+
+.search-container.results{
+   @include _ui_top_border_radius;
+}
+
+.seach-loading-icon{
+  color: black;
+  float: right;
+  line-height: $inputHeight;
+  margin-right: $inlineSearchIconMarginRight;
+  display: none;
+}
+
+.search-input{
+  @include _ui_input_large;
+  margin: 0; // overide margin in _ui_input_large
+  position: relative;
+}
+
+.search-inline-container{
+  @include _ui_full_border_radius;
+  background: white;
+  display: inline-block;
+  left:0px;
+  position: $inlineSearchContainerPos;
+  right: $_app_gutter;
+  top: $inlineSearchContainerTop;
+  width: $inlineSearchContainerWidth;
+  margin: $inlineSearchContainerMargin;
+  opacity: $inlineSearchContainerOpacity;
+  visibility: $inlineSearchContainerVisibility;
+  transition: opacity 0.2s;
+}
+
+.search-inline-container-icon{
+  color:black;
+  line-height:normal;
+  width: $inlineSearchIconWidth;
+  cursor: pointer;
+}
+
+.search-inline-container-icon-close{
+  @extend .search-inline-container-icon;
+  position: absolute;
+  padding-left: 10px;
+}
+
+.search-inline-container-icon-search{
+  @extend .search-inline-container-icon;
+  position: absolute;
+  padding: $inlineSearchContainerIconSearchPadding;
+  right: $inlineSearchContainerIconSearchRight;
+}
+
+.search-inline-input{
+  @include _ui_input_small;
+  height: $inlineSearchInputHeight;
+  padding-left : $inputPaddingL;
+  padding-right : $inputPaddingR;
+  margin: 0;
+  width: 100%;
+}
+
+.search-button {
+  @include _ui_button_large;
+  margin: $elementsMargin; //overide margin in _ui_button_large
+  width: $buttonWidth;
+  right:$_app_gutter;
+  top : $elementsTop;
+  position: absolute;
+  color: white;
+}
+
+.search-suggestions-container{
+  @include _ui_bottom_border_radius;
+  top: $browseContTop;
+  background: white;
+  position: absolute;
+  z-index: 1;
+  text-align: left;
+}
+
+.search-suggestions-inline-container{
+  @include _ui_bottom_border_radius;
+  width: $inlineSearchSuggestionsWidth;
+  background: white;
+  position: absolute;
+  z-index: 1;
+  text-align: left;
+  right: 0;
+}
+
+.search-suggestions{
+  height: $inputHeight;
+  line-height: $inputHeight;
+  border-top: $suggestionTopBorder;
+}
+
+.search-suggestions:hover{
+  background-color: $_search_otherSearchesHoverBGColor;
+}
+
+.search-suggestions-link{
+  @include app_ellide;
+  width: 100%;
+  display: block;
+  color: $_search_suggestionTextColor;
+  padding: $suggestionPadding;
+}
+
+.search-suggestions-link:hover {
+  color:$_search_HoverTextColor;
+}
+
+.search-suggestions-link-title{
+  font-weight: bold;
+}
+
+.search-browser-container{
+  top : $scrollContTop;
+}
+
+.search-no-results {
+  padding: $resultsPadding;
+}
+
+.suggestion-search-item{
+  background-color: $_search_otherSearchesBGColor;
+  position:relative;
+}
+
+.suggestion-search-item-link:before{
+   content:'\0f002';
+   font-family: FontAwesome;
+   font-size:20px;
+   margin:0;
+   vertical-align:middle;
+   left:0;
+   padding-right: 5px;
+   color: $_search_suggestionTextColor;
+}
+
+//.suggestion-search-item-link:after{
+//   content:'\0f0da';
+//   font-family: FontAwesome;
+//   font-size:20px;
+//   margin:0 0 0 10px;
+//   vertical-align:middle;
+//   right:10px;
+//   top:0;
+//   position:absolute;
+//   color: $_search_suggestionTextColor;
+//}
+
+.suggestion-search-item-link {
+}
+
+.search-decoration-tile-text {
+  margin-left:5px;
+}
+
+.search-decoration-inline:before {
+  font-family:FontAwesome;
+  content: '\F129'; //icon-info
+  margin-left:10px;
+}
+
+.search-decoration-tile:before {
+  font-family:FontAwesome;
+  content: '\F129'; //icon-info
+  margin-left:5px;
+}
+
+.search-decoration-title:before {
+  content: '\F008'; //icon-film
+}
+
+.search-decoration-programme:before {
+  content: '\F108'; //icon-desktop
+}
+
+.search-decoration-content:before {
+  content: '\F108'; //icon-desktop
+}
+
+.search-decoration-actors:before {
+  content: '\F007'; //icon-user
+}
+
+.search-decoration-description:before {
+  content: '\F036'; //icon-align-left
+}
+
+.search-decoration-directors:before {
+  content: '\F0A1'; //icon-bullhorn
+}
+
+.search-decoration-synopsis:before {
+  content: '\F03A'; //icon-list
+}
+
+.search-decoration-unknown:before {
+  content: '\F129'; //icon-info
+}
+

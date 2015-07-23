@@ -1,0 +1,41 @@
+// default values for the primary application colour. All other colours are derived by these values in some form
+$__primaryHue : 189;
+$__primarySaturation : 100%;
+$__primaryLightness : 26%;
+
+// values used for alpha in hlsa
+$__alphaMax : 1;
+$__alphaMajor : 0.8;
+$__alphaMedium : 0.6;
+$__alphaMin : 0.4;
+
+ // This is the colour that is used as the primary colour throughout the application
+$_palette_color1 : hsla($__primaryHue, $__primarySaturation, $__primaryLightness, $__alphaMax); // #007186
+$_palette_color2 : change-color($_palette_color1, $lightness : 39%); // #00abc9
+$_palette_color3 : change-color($_palette_color1, $lightness : 28%); // #00788e
+$_palette_color4 : #e8e8e8;
+
+$_palette_color5 : #ff4e50;
+$_palette_color6 : #49cbc4;
+$_palette_color7 : mix($_palette_color1, #FFFFFF, percentage($__alphaMin));
+
+// Some other colors used throughout the application
+$_palette_color8 : white; // #FFFFFF
+$_palette_color9 : #708090;
+$_palette_color10 : change-color($_palette_color1, $lightness : 10%); // 002442
+
+// These are different transparency versions of $_palette_color1
+$_palette_color11: change-color($_palette_color1, $alpha : $__alphaMin); //rgba(0, 70, 128, 0.4)
+$_palette_color12: change-color($_palette_color1, $alpha : $__alphaMajor); //rgba(0, 70, 128, 0.8);
+$_palette_color13: change-color($_palette_color1, $alpha : $__alphaMedium); //rgba(0, 70, 128, 0.6);
+
+// Darker primary color (mainly in EPG)
+$_palette_color14 : change-color($_palette_color1, $lightness : 5%);
+// Darker primary text (mainly in EPG)
+$_palette_color15 : change-color($_palette_color8, $lightness : 45%);
+
+$_palette_color16 : red;
+$_palette_color17 : darkorange;
+$_palette_color18 : black;
+$_palette_color19 : #F75D59;
+$_palette_color20 : yellow; // Search Decorations

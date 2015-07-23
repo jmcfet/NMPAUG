@@ -1,0 +1,19 @@
+@import "application";
+
+.category-title {
+	@include _app_main_title;
+}
+
+.category-grid-container {
+  top: $_app_titleHeight;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	bottom: 0px;
+}
+
+.category-grid-scroller {
+	margin: 0 auto;
+	position: relative;
+}

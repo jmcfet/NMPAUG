@@ -1,0 +1,53 @@
+@import "application";
+@import "epg";
+
+// The total width of the channel bar is used to position the main grid.
+$channelBarNowNextTotalWidth: $_epg_channelBarTotalWidth - $_epg_leftRightArrowWidth;
+$channelBarBottom : 12px;
+
+.epg-scroller-container-channelbar {
+  bottom: 0;
+  float: left;
+  left: 0;
+  overflow: hidden;
+  padding: 0 $_epg_paddingRight 0 $_epg_paddingLeft;
+  position: absolute;
+  top: $_epg_topTotalHeight;
+  background-color: $_epg_channelBarBgColor;
+}
+
+.epg-scroller-container-channelbar.nownext {
+  top: $_epg_topBarHeightNowNext;
+}
+
+.epg-channel-bar {
+  position: relative;
+  width: $_epg_channelWidth;
+}
+
+.epg-channel-item {
+  @include _vendor_prefix(transition, background-color .1s ease-out);
+  background-color: $_epg_channelItemBgColor;
+  cursor: pointer;
+  height: $_epg_rowHeight;
+  margin-bottom: $channelBarBottom;
+  overflow: hidden;
+  @if $_form_factor == desktop{
+    &:hover {
+      background-color: $_epg_highHoverColor;
+    }
+  }
+}
+
+.epg-channel-item-unsubscribed {
+  @include _vendor_prefix(transition, background-color .1s ease-out);
+  background-color: $_epg_unSubscribedchannelItemBgColor;
+}
+
+.epg-channel-item.epg-next-prev-chan-spacer {
+  background-color: transparent;
+}
+
+.epg-channel-item-highlight {
+  background-color: $_epg_activeElementBgColor;
+}

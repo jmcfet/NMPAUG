@@ -1,0 +1,10 @@
+# The version number
+version=2.56.0
+jsfw.version=R-CLIENT-JSFW-2.8.0-b3
+#folder containing the config files (src/js/core/config/xxxx)
+config.js.file=ott
+production.mode=false
+#per platform theme configuration
+theme.desktop=edgeDark
+theme.tablet=edgeDark
+theme.phone=edgeDark

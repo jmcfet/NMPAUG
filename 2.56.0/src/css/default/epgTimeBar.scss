@@ -1,0 +1,53 @@
+@import "application";
+@import "epg";
+
+// The highlight border below the time bar shows the current hour
+$timeBarActiveBorderHeight: 5px;
+// Color and sty;e of border
+$timeBarActiveBorder: solid $_epg_timeBarActiveBorderColor;
+// Space before the first and after the last time span
+$timeBarFirstMarginLeft: $_epg_channelBarTotalWidth + $_epg_leftRightArrowWidth;
+// The time span's right margin allows for the next arrow
+$timeBarLastMarginRight: $_epg_leftRightArrowWidth;
+//left padding for the nownext layout
+$time_bar_nownext_padding_left: $_epg_channelBarTotalWidth;
+
+.epg-time-bar {
+  height: $_epg_fixed_elements_height;
+  line-height: $_epg_fixed_elements_height;
+  white-space: nowrap;
+}
+
+.epg-time-bar.nownext {
+  padding-left: $time_bar_nownext_padding_left;
+  width: 100%;
+}
+
+.epg-time-span.active-hour {
+  border-bottom: $timeBarActiveBorderHeight $timeBarActiveBorder;
+}
+
+.epg-time-span {
+  width: $_epg_pixelsPerHour;
+  display: inline-block;
+  color: $_epg_timeSpanColor;
+}
+
+.epg-time-span:first-child {
+  margin-left: $timeBarFirstMarginLeft;
+}
+
+.epg-time-span:last-child {
+ // margin-right: $timeBarLastMarginRight;
+ width: $_epg_pixelsPerHour + $timeBarLastMarginRight;
+}
+
+.epg-time-span-nownext {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.epg-scroller-container-timebar{
+  background-color: $_epg_timeBarBackgroundColor;
+}

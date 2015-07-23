@@ -1,0 +1,60 @@
+@import "application";
+
+// Browse Screen dimensions. These variable define the layout.
+
+// ******************************
+// Define variables for the scss
+// ******************************
+
+// The padding for the No Results message
+$noResultsPadding: _ff($phone: $_app_gutter 0 0 $_app_gutter, $tablet: 0 0 0 $_app_gutter);
+
+// The styles that are associated with the side bar on the mobile browse screen
+$browseSideBarBottom : $_app_gutter; //10px
+$browseSideBarRight: $_app_gutter / 3.3; // aprox 3px
+$browseSideBarTop : $_app_gutter * 4; //40px
+$browseSideBarWidth : $_app_gutter / 2; //5px
+
+// The height of a scroll indicator
+// The browse scroller container fills the space between the title and the scroll indicator
+$scrollIndicatorHeight: $_app_screen_bottom;
+
+$browseSmallTitleFontSize : _ff($phone: $_app_small_font_size, $tablet: $_app_large_font_size);
+
+// ******************************
+// Define css classes
+// ******************************
+
+.title {
+	@include _app_main_title;
+}
+
+.browse-small-title {
+  font-size: $browseSmallTitleFontSize;
+}
+
+.browse-scroller-container {
+	top: $_app_titleHeight;
+	bottom: $scrollIndicatorHeight;
+	cursor: pointer;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.browse-scroller-container.portrait {
+	bottom: 0px;
+}
+
+
+.browse-sidebar {
+	bottom: $browseSideBarBottom;
+	right: $browseSideBarRight;
+	top: $browseSideBarTop;
+	width: $browseSideBarWidth;
+	position: absolute;
+}
+
+.browse-no-results {
+  padding: $noResultsPadding;
+}

@@ -1,0 +1,43 @@
+<!-- Bootstrap to server - very basic connection check followed by loading of app or error page with retry.
+Author:  	Paul Connell
+Date:		2013/03/04
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="Env.js"></script>
+		<script src="bootstrap.js"></script>
+		<style>
+			body {
+				background-color: #000000;
+				color: #FFFFFF;
+				font-family: Helvetica;
+				font-size: 1.1em;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+			#errorRetry {
+				position: relative;
+				text-align: center;
+				top: 18%;
+			}
+			#retryButton {
+				font-size: 1.0em;
+				padding: 1%;
+			}
+		</style>
+		<title>_</title>
+	</head>
+	<body onLoad="bootCheck(window.nmpConfig.url);">
+		<div id="errorRetry" style="display:none;" >
+			<img src="bootLogo.png" onError="this.style.display = 'none';">
+			<p>
+				<script>
+                    document.write(window.nmpConfig.errorText);
+				</script>
+			</p>
+			<input type="button" id="retryButton" value="" onClick="bootCheck(window.nmpConfig.url);">
+		</div>
+	</body>
+</html>

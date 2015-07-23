@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Nagra Reference UI</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="shortcut icon" href="./favicon.ico" />
+
+		<!-- Third part libs -->
+		<script src="lib/jquery/jquery-1.8.2.js"></script>
+		<script src="lib/jquery/jquery-ui-1.10.3.custom/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="lib/jquery.validate.1.11.1/jquery.validate.1.11.1.js"></script>
+		<script src="lib/FastClick.js"></script>
+		<script src="lib/Placeholders.js"></script>
+		<script src="lib/hammer.min.js"></script>
+
+		<!-- Ninja Framework -->
+		<script src="lib/jsfw/lib/xml2json.js"></script>
+		<script src="lib/jsfw/lib/es5-shim.min.js"></script>
+		<!--script src="lib/jsfw/lib/require.js"></script-->
+
+		<script src="lib/jsfw/apps/util/Util.js"></script>
+		<script src="lib/jsfw/Config.js"></script>
+		<script src="lib/jsfw/apps/util/Clock.js"></script>
+		<script src="lib/jsfw/apps/util/JSON.js"></script>
+		<!--script src="lib/jsfw/apps/core/LogConfig.js"></script-->
+		<script src="lib/jsfw/apps/core/Log.js"></script>
+		<script src="lib/jsfw/apps/core/AjaxHandler.js"></script>
+		<script src="lib/jsfw/apps/core/Language.js"></script>
+
+		<!-- Logger -->
+		<script src="js/core/WebSocketLogger.js"></script>
+		<script src="js/core/Logger.js"></script>
+
+		<!-- Ninja Framework -->
+		<script src="lib/jsfw/apps/core/Version.js"></script>
+		<script src="lib/jsfw/data/EPGEvent.js"></script>
+		<script src="lib/jsfw/data/EPGService.js"></script>
+		<script src="lib/jsfw/data/Recording.js"></script>
+
+		<script src="lib/jsfw/services/sdp/RequestWorker.js"></script>
+		<script src="lib/jsfw/services/sdp/BaseService.js"></script>
+		<script src="lib/jsfw/services/sdp/stubs/allServices.js"></script>
+		<script src="lib/jsfw/services/sdp/HomeDomainManagerService.js"></script>
+		<script src="lib/jsfw/services/sdp/Signon.js"></script>
+		<script src="lib/jsfw/services/sdp/signon/AbstractSignon.js"></script>
+		<script src="lib/jsfw/services/sdp/signon/AbstractSignonOnNMP.js"></script>
+		<script src="lib/jsfw/services/sdp/signon/SignonWithNMPManager.js"></script>
+		<script src="lib/jsfw/services/sdp/signon/SignonOnBrowser.js"></script>
+		<script src="lib/jsfw/services/sdp/signon/SignonOnHandheld.js"></script>
+
+		<script src="lib/jsfw/services/sdp/ServiceFactory.js"></script>
+		<script src="lib/jsfw/services/sdp/BootStrap.js"></script>
+		<script src="lib/jsfw/services/sdp/IPDataLoader.js"></script>
+		<script src="lib/jsfw/services/sdp/Ratings.js"></script>
+		<script src="lib/jsfw/services/sdp/EPGEventFactory.js"></script>
+		<script src="lib/jsfw/services/sdp/EPGServiceFactory.js"></script>
+		<script src="lib/jsfw/services/sdp/Ratings.js"></script>
+		<script src="lib/jsfw/services/sdp/VOD.js"></script>
+		<script src="lib/jsfw/services/sdp/AcquiredContent.js"></script>
+		<script src="lib/jsfw/services/sdp/EPG.js"></script>
+		<script src="lib/jsfw/services/sdp/PRM.js"></script>
+		<script src="lib/jsfw/services/sdp/Preferences.js"></script>
+		<script src="lib/jsfw/services/sdp/Search.js"></script>
+		<script src="lib/jsfw/services/sdp/BTVSearch.js"></script>
+		<script src="lib/jsfw/services/sdp/VODSearch.js"></script>
+		<script src="lib/jsfw/services/sdp/Favourites.js"></script>
+		<script src="lib/jsfw/services/sdp/ViewingStats.js"></script>
+		<script src="lib/jsfw/services/sdp/Subscriptions.js"></script>
+		<script src="lib/jsfw/services/sdp/Promotions.js"></script>
+		<script src="lib/jsfw/services/sdp/Bookmark.js"></script>
+		<script src="lib/jsfw/apps/core/XssRequest.js"></script>
+		<script src="lib/jsfw/services/sdp/LockerService.js"></script>
+		<script src="lib/jsfw/services/sdp/NPVRManager.js"></script>
+		<script src="lib/jsfw/services/sdp/RecordingFactory.js"></script>
+
+		<script src="lib/jsfw/platform/btv/EPG.js"></script>
+		<script src="lib/jsfw/platform/btv/EPGEventFactory.js"></script>
+		<script src="lib/jsfw/platform/btv/EPGServiceFactory.js"></script>
+		<script src="lib/jsfw/platform/btv/HybridServiceFactory.js"></script>
+		<script src="lib/jsfw/platform/btv/EPGCache.js"></script>
+		<script src="lib/jsfw/platform/btv/PersistentCache.js"></script>
+		<script src="lib/jsfw/platform/output/SeekTrickPlay.js"></script>
+		<script src="lib/jsfw/platform/output/Tracks.js"></script>
+		<script src="lib/jsfw/platform/output/TrickPlay.js"></script>
+		<script src="lib/jsfw/platform/output/Tuner.js"></script>
+		<script src="lib/jsfw/platform/output/DRM.js"></script>
+		<script src="lib/jsfw/platform/output/VideoPlayer.js"></script>
+		<script src="lib/jsfw/platform/output/NagraMediaElement.js"></script>
+		<script src="lib/jsfw/platform/output/PlayoutManager.js"></script>
+		<script src="lib/jsfw/platform/system/Preferences.js"></script>
+		<script src="lib/jsfw/platform/system/Network.js"></script>
+		<script src="lib/jsfw/platform/ca/PINHandler.js"></script>
+		<script src="lib/jsfw/platform/ca/ParentalControl.js"></script>
+		<script src="lib/jsfw/services/gateway/dlna/SoapHandler.js"></script>
+		<script src="lib/jsfw/platform/media/DLNA.js"></script>
+		<script src="lib/jsfw/platform/output/Chapters.js"></script>
+		<script src="lib/jsfw/platform/output/NMPPluginHelper.js"></script>
+		<script src="lib/jsfw/platform/output/OTTContentMapper.js"></script>
+		<script src="lib/jsfw/platform/output/GWContentMapper.js"></script>
+		<!--script src="lib/jsfw/platform/output/Adverts.js" </script-->
+
+		<!--script src="lib/jsfw/services/gateway/dlna/CompanionDevice.js"></script-->
+		<script src="lib/jsfw/services/gateway/dlna/MediaDevice.js"></script>
+		<script src="lib/jsfw/services/gateway/dlna/RecordingFactory.js"></script>
+		<script src="lib/jsfw/services/gateway/dlna/EPGServiceFactory.js"></script>
+		<!-- Ninja Framework End (but see MetadataService.js import below!)-->
+
+		<!-- Core JS -->
+		<script src="js/core/NetworkHandler.js"></script>
+		<script src="js/core/ConnectionChecker.js"></script>
+		<script src="js/core/Device.js"></script>
+		<script src="js/core/Configuration.js"></script>
+		<script src="js/core/HlsConfiguration.js"></script>
+		<script src="js/core/StarHubGWContentMapper.js"></script>
+		<script src="js/core/StarHubGWRTSPContentMapper.js"></script>
+		<script src="js/core/TrailerContentMapper.js"></script>
+		<script src="js/core/Locale.js"></script>
+		<script src="js/core/util/StringHelper.js"></script>
+		<script src="js/core/util/Highlighter.js"></script>
+		<script src="js/core/Gateway.js"></script>
+		<script src="js/core/ApplicationState.js"></script>
+		<script src="js/core/applicationevents/ApplicationEvent.js"></script>
+		<script src="js/core/applicationevents/SleepEvent.js"></script>
+
+		<script src="js/core/RefreshApplication.js"></script>
+		<script src="js/core/store/Store.js"></script>
+		<script src="js/core/store/LocalStore.js"></script>
+		<script src="js/core/store/SecureStore.js"></script>
+		<script src="js/core/store/PluginSecureStore.js"></script>
+
+		<script src="js/core/LifecycleHandler.js"></script>
+		<script src="js/core/CategoryConfiguration.js"></script>
+		<script src="js/core/util/SimpleSet.js"></script>
+		<script src="js/core/util/Formatter.js"></script>
+		<script src="js/core/util/HtmlHelper.js"></script>
+		<script src="js/core/util/BaseImageURLHelper.js"></script>
+		<script src="js/core/util/ImageURLHelper.js"></script>
+		<script src="js/core/util/DomEl.js"></script>
+		<script src="js/core/util/ScrollableHelper.js"></script>
+		<script src="js/core/util/SortHelper.js"></script>
+		<script src="js/core/ImageLoader.js"></script>
+		<script src="js/core/Preferences.js"></script>
+
+		<script src="js/core/dialogs/PlaybackWarningDialog.js"></script>
+		<script src="js/core/dialogs/AppLoadWarningDialog.js"></script>
+
+		<!-- Category handlers -->
+		<script src="js/core/category/favourites/Favourites.js"></script>
+		<script src="js/core/category/favourites/FavouritesRemove.js"></script>
+		<script src="js/core/category/recentlyviewed/RecentlyViewed.js"></script>
+		<script src="js/core/category/pvr/PVRRemove.js"></script>
+		<script src="js/core/category/pvr/PVRRecorded.js"></script>
+		<script src="js/core/category/pvr/PVRScheduled.js"></script>
+		<script src="js/core/category/pvr/PVRChannels.js"></script>
+
+		<!-- Core Version JS -->
+		<script src="js/core/Launch.js"></script>
+		<script src="js/core/version/Version.js"></script>
+		<script src="js/core/version/VersionDialog.js"></script>
+		<script src="js/core/UpdateCheck.js"></script>
+		<script src="js/core/View.js"></script>
+		<script src="js/core/JoinIn.js"></script>
+		<script src="js/core/Player.js"></script>
+		<script src="js/core/ImageLoader.js"></script>
+		<script src="js/core/Options.js"></script>
+
+		<!-- Core Sign on JS -->
+		<script src="js/core/signon/SignOnDialog.js"></script>
+		<script src="js/core/signon/SignOn.js"></script>
+		<script src="js/core/signon/PluginChecker.js"></script>
+		<script src="js/core/menudata/ContentDiscovery.js"></script>
+		<script src="js/core/menudata/MDSAdapter.js"></script>
+		<script src="js/core/menudata/MenuData.js"></script>
+		<script src="js/core/menudata/CatalogueAssetFetcher.js"></script>
+		<script src="js/core/menudata/MenuNode.js"></script>
+		<script src="js/core/menudata/CatalogueNode.js"></script>
+		<script src="js/core/menudata/RootNode.js"></script>
+		<script src="js/core/menudata/AliasNode.js"></script>
+		<script src="js/core/menudata/CustomNode.js"></script>
+
+		<script src="js/core/mediaitem/MediaItemType.js"></script>
+		<script src="js/core/mediaitem/MediaItem.js"></script>
+		<script src="js/core/mediaitem/TrailerItem.js"></script>
+		<script src="js/core/mediaitem/VODItem.js"></script>
+		<script src="js/core/mediaitem/SDPVODItem.js"></script>
+		<script src="js/core/mediaitem/MDSVODItem.js"></script>
+		<script src="js/core/mediaitem/GWVODItem.js"></script>
+		<script src="js/core/mediaitem/VODSeriesItem.js"></script>
+		<script src="js/core/mediaitem/BTVEventItem.js"></script>
+		<script src="js/core/mediaitem/BTVNoInfoItem.js"></script>
+		<script src="js/core/mediaitem/BTVChannelItem.js"></script>
+		<script src="js/core/mediaitem/GWChannelItem.js"></script>
+		<script src="js/core/mediaitem/OnNowItem.js"></script>
+		<script src="js/core/mediaitem/NPVRItem.js"></script>
+		<script src="js/core/mediaitem/PVRRecordedItem.js"></script>
+		<script src="js/core/mediaitem/PVRScheduledItem.js"></script>
+		<script src="js/core/mediaitem/SeriesContainerItem.js"></script>
+		<script src="js/core/mediaitem/SuggestedItem.js"></script>
+		<script src="js/core/mediaitem/PurchaseOption.js"></script>
+		<script src="js/core/mediaitem/SDPPurchaseOption.js"></script>
+		<script src="js/core/mediaitem/MDSPurchaseOption.js"></script>
+		<script src="js/core/mediaitem/MDSSubscriptionOption.js"></script>
+		<script src="js/core/mediaitem/MockPurchaseOptions.js"></script>
+		<script src="js/core/mediaitem/CatchUpMediaItem.js"></script>
+		<script src="js/core/mediaitem/mediaitemloader/MediaItemLoader.js"></script>
+		<script src="js/core/mediaitem/mediaitemloader/BTVChannelItemLoader.js"></script>
+		<script src="js/core/mediaitem/mediaitemloader/OnNowItemLoader.js"></script>
+		<script src="js/core/mediaitem/mediaitemloader/VODItemLoader.js"></script>
+
+
+		<script src="js/core/category/CategoryProvider.js"></script>
+		<script src="js/core/category/favourites/FavouritesCategoryProvider.js"></script>
+		<script src="js/core/category/recentlyviewed/RecentlyViewedCategoryProvider.js"></script>
+		<script src="js/core/category/npvr/NPVRScheduledCategoryProvider.js"></script>
+		<script src="js/core/category/npvr/NPVRCompletedCategoryProvider.js"></script>
+		<script src="js/core/category/pvr/PVRRecordedCategoryProvider.js"></script>
+		<script src="js/core/category/pvr/PVRScheduledCategoryProvider.js"></script>
+		<script src="js/core/category/test/TestCategoryProvider.js"></script>
+		<script src="js/core/category/pvr/PVRChannelsCategoryProvider.js"></script>
+		<script src="js/core/category/pvr/PVRNowPlayingCategoryProvider.js"></script>
+
+		<!-- Widgets JS -->
+		<!-- Dialog -->
+		<script src="js/core/widgets/dialog/Dialog.js"></script>
+		<script src="js/core/widgets/dialog/GenericDialog.js"></script>
+		<script src="js/core/widgets/dialog/FullscreenDialog.js"></script>
+		<script src="js/core/widgets/dialog/SettingsDialog.js"></script>
+		<script src="js/core/widgets/dialog/PhoneSettingsDialog.js"></script>
+
+		<script src="js/core/widgets/PageLoading.js"></script>
+
+		<!-- Scroller -->
+		<script src="js/core/widgets/scroller/Animate.js"></script>
+		<script src="js/core/widgets/scroller/Scroller.js"></script>
+		<script src="js/core/widgets/scroller/NagraScroller.js"></script>
+		<script src="js/core/widgets/scroller/VirtualizingNagraScroller.js"></script>
+
+		<!-- Asset tiles -->
+		<script src="js/core/widgets/AssetContainer.js"></script>
+		<script src="js/core/widgets/AssetScroller.js"></script>
+		<script src="js/core/widgets/DesktopAssetScroller.js"></script>
+		<script src="js/core/widgets/ShiftingAssetScroller.js"></script>
+		<script src="js/core/widgets/AssetGrid.js"></script>
+		<script src="js/core/widgets/AssetList.js"></script>
+		<script src="js/core/widgets/DesktopCategoryAssetGrid.js"></script>
+		<script src="js/core/widgets/ShiftingAssetGrid.js"></script>
+		<script src="js/core/widgets/assettile/AssetTile.js"></script>
+		<script src="js/core/widgets/assettile/ImageAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/VodAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/ChannelAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/OnNowAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/NpvrFolderAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/EventAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/PvrRecordedAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/PvrScheduledAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/CatchUpAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/VodSeriesAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/SeriesContainerAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/TimeAssetTile.js"></script>
+		<script src="js/core/widgets/assettile/WideTimeAssetTile.js"></script>
+
+		<!-- Search Bar -->
+		<script src="js/core/widgets/search/SearchBar.js"></script>
+		<script src="js/core/widgets/search/StandAloneSearchBar.js"></script>
+		<script src="js/core/widgets/search/InlineSearchBar.js"></script>
+
+		<!-- Header Bar -->
+		<script src="js/header/HeaderBar.js"></script>
+		<script src="js/header/PhoneHeaderBar.js"></script>
+		<script src="js/header/TabletHeaderBar.js"></script>
+		<script src="js/header/DesktopHeaderBar.js"></script>
+
+		<script src="js/core/PhoneNavigationMenu.js"></script>
+		<!-- AssetScreen JS -->
+		<script src="js/core/AssetScreen.js"></script>
+
+		<!-- NPVRManager JS -->
+		<script src="js/core/NPVRManager.js"></script>
+
+		<!-- Browse JS -->
+		<script src="js/browse/BrowseScreen.js"></script>
+		<script src="js/browse/MultiBrowseScreen.js"></script>
+		<script src="js/browse/MultiCategoryScreen.js"></script>
+		<script src="js/category/CategoryScreen.js"></script>
+
+		<!-- Menu JS -->
+		<script src="js/browse/widgets/BrowseMenu.js"></script>
+		<script src="js/browse/widgets/Menu.js"></script>
+		<script src="js/browse/widgets/MobileMenu.js"></script>
+
+		<!-- EPG JS -->
+		<script src="js/epg/util/TimeHelper.js"></script>
+		<script src="js/epg/EPGElements.js"></script>
+		<script src="js/epg/EPGScreen.js"></script>
+		<script src="js/epg/widgets/EPGScrollerWidget.js"></script>
+		<script src="js/epg/widgets/EPGGrid.js"></script>
+		<script src="js/epg/widgets/NowNextGrid.js"></script>
+		<script src="js/epg/widgets/ChannelBar.js"></script>
+		<script src="js/epg/widgets/TimeBar.js"></script>
+		<script src="js/epg/widgets/NowNextTimeBar.js"></script>
+		<script src="js/epg/widgets/DayBar.js"></script>
+		<script src="js/epg/widgets/NowBar.js"></script>
+		<script src="js/epg/widgets/MiniMediaCard.js"></script>
+		<script src="js/epg/widgets/CatchupMiniMediaCard.js"></script>
+		<script src="js/epg/widgets/EPGEvent.js"></script>
+		<script src="js/epg/widgets/NowNextEPGEvent.js"></script>
+		<script src="js/epg/EPGHorizontalScrollManager.js"></script>
+		<script src="js/epg/EPGRows.js"></script>
+		<script src="js/epg/dataprovider/BTVDataProvider.js"></script>
+		<script src="js/epg/dataprovider/NoCacheBTVDataProvider.js"></script>
+
+		<!-- MediaCard JS -->
+		<script src="js/mediacard/MediaCardController.js"></script>
+		<script src="js/mediacard/MediaCardScreen.js"></script>
+		<script src="js/mediacard/TabletMediaCardScreen.js"></script>
+		<script src="js/mediacard/PhoneMediaCardScreen.js"></script>
+		<script src="js/mediacard/InfoCard.js"></script>
+		<script src="js/mediacard/TabletInfoCard.js"></script>
+		<script src="js/mediacard/PhoneInfoCard.js"></script>
+		<script src="js/mediacard/DesktopInfoCard.js"></script>
+		<script src="js/mediacard/MediaCardPlayer.js"></script>
+		<script src="js/mediacard/MediaCardButtonOverlay.js"></script>
+		<script src="js/mediacard/BTVControlAdaptor.js"></script>
+		<script src="js/mediacard/VODControlAdaptor.js"></script>
+		<script src="js/mediacard/GatewayControlAdaptor.js"></script>
+		<script src="js/mediacard/VideoControls.js"></script>
+
+		<script src="js/mediacard/MediaCardPurchaseDialog.js"></script>
+		<script src="js/mediacard/MediaCardPurchaseWorkflow.js"></script>
+		<script src="js/mediacard/MediaCardCallToActionBar.js"></script>
+		<script src="js/mediacard/MoreLikeThisController.js"></script>
+		<script src="js/mediacard/MoreLikeThis.js"></script>
+		<script src="js/mediacard/MultiMoreLikeThis.js"></script>
+		<script src="js/mediacard/CategoryMoreLikeThis.js"></script>
+		<script src="js/mediacard/MoreLikeThisGrid.js"></script>
+		<script src="js/mediacard/MoreLikeThisScroller.js"></script>
+		<script src="js/mediacard/BTVMoreLikeThis.js"></script>
+		<script src="js/mediacard/BTVMoreLikeThisGrid.js"></script>
+		<script src="js/mediacard/BTVMoreLikeThisScroller.js"></script>
+		<script src="js/mediacard/StarRatingDialog.js"></script>
+		<script src="js/mediacard/ThrowDialog.js"></script>
+		<script src="js/mediacard/MediaCardTransitions.js"></script>
+		<script src="js/mediacard/MediaCardPlayerEvents.js"></script>
+		<script src="js/mediacard/MediaCardPlayDialog.js"></script>
+
+		<!-- SearchScreen JS -->
+		<script src="js/search/SearchScreen.js"></script>
+		<script src="js/search/PhoneSearchScreen.js"></script>
+		<script src="js/search/TabletSearchScreen.js"></script>
+
+		<!-- Settings JS -->
+		<script src="js/settings/AppSettings.js"></script>
+		<script src="js/settings/AppSettingsDialog.js"></script>
+		<script src="js/settings/ChooseLanguageDialog.js"></script>
+		<script src="js/settings/DeviceNameDialog.js"></script>
+		<script src="js/settings/SubtitlesDialog.js"></script>
+		<script src="js/settings/MobileVideoDialog.js"></script>
+
+		<!-- Parental Controls -->
+        <script src="js/core/parentalcontrols/ParentalControlsDialog.js"></script>
+        <script src="js/core/parentalcontrols/ParentalControls.js"></script>
+
+		<script src="js/core/StarHubGWMenuTransformer.js"></script>
+
+		<script>
+			if ($U.core.Configuration) {
+				if ($U.core.Configuration.MDS_CONFIG) {
+					document.write('\x3Cscript type="text/javascript" src="lib/jsfw/services/sdp/MetadataService.js">\x3C/script>');
+					document.write('\x3Cscript type="text/javascript" src="lib/jsfw/services/sdp/stubs/allServicesPatch.js">\x3C/script>');
+				}
+
+				if($U.core.Configuration.NICE264_PLUGIN_ENABLED) {
+                    document.write('\x3Cscript type="text/javascript" src="lib/youbora-data.js">\x3C/script>');
+                    document.write('\x3Cscript type="text/javascript" src="lib/youbora-api.js">\x3C/script>');
+                    document.write('\x3Cscript type="text/javascript" src="lib/Nice264Plugin.js">\x3C/script>');
+				}
+			}
+		</script>
+
+
+		<script src="lib/jsfw/services/sdp/RESTService.js"></script>
+		<script src="lib/jsfw/services/sdp/Account.js"></script>
+		<script src="lib/jsfw/services/sdp/StaticRecommendations.js"></script>
+		<script src="lib/jsfw/services/contentdiscovery/ContentDiscoveryGatewayService.js"></script>
+		<script src="lib/jsfw/services/contentdiscovery/DynamicRecommendations.js"></script>
+		<script src="lib/jsfw/services/contentdiscovery/UserActivity.js"></script>
+		<script src="js/core/category/recommendations/RecommendationsCategoryProvider.js"></script>
+		<script src="js/core/mediaitem/MediaItemHelper.js"></script>
+
+		<script src="lib/jsfw/services/multidrm/UpgradeManagerService.js"></script>
+		<script src="lib/jsfw/services/multidrm/UpgradeManager.js"></script>
+
+		<script src="lib/jsfw/services/contentdiscovery/Ratings.js"></script>
+
+		<script>
+			window.onerror = function(errorMsg, url, lineNumber) {
+				var logger = $U.core.Logger.getLogger("window");
+				if (logger) {
+					logger.log("onerror", errorMsg + "\n" + url + " line: " + lineNumber);
+				}
+			};
+		</script>
+
+		<script>
+			( function() {
+				var ff = $U.core.Device.getFF().name.toLowerCase();
+				var u = "<link rel=\"stylesheet\" href=\"css/";
+				var v = "\" />";
+				function writeCss(file) {
+					document.write(u + file + v);
+				}
+
+				writeCss("lib/normalize.css");
+				writeCss("font/font-awesome/font-awesome.css");
+				writeCss("font/vegur/vegur.css");
+				writeCss(ff + "/common.css");
+				writeCss(ff + "/view.css");
+				writeCss(ff + "/menu.css");
+				writeCss(ff + "/asset-tile.css");
+				writeCss(ff + "/dialogs.css");
+				writeCss(ff + "/epgGrid.css");
+				writeCss(ff + "/epgDayBar.css");
+				writeCss(ff + "/epgChannelBar.css");
+				writeCss(ff + "/epgTimeBar.css");
+				writeCss(ff + "/epg-mmc.css");
+				writeCss(ff + "/browse.css");
+				writeCss(ff + "/mediacard.css");
+				writeCss(ff + "/videoController.css");
+				writeCss(ff + "/search.css");
+				writeCss(ff + "/footer.css");
+				writeCss(ff + "/scrollIndicators.css");
+				writeCss(ff + "/headerBar.css");
+				writeCss(ff + "/headerTools.css");
+				writeCss(ff + "/headerTabs.css");
+				writeCss(ff + "/desktop-core.css");
+				writeCss(ff + "/multi-browse.css");
+				writeCss(ff + "/category-grid.css");
+				writeCss(ff + "/locale.css");
+				writeCss(ff + "/bootstrapTabs.css");
+			}());
+
+			var useSpinner = $U.core.Device.isWebkit();
+			if (!useSpinner) {
+				document.write('<style type="text/css">.icon-spin{-moz-animation:none;-webkit-animation:none;animation:none;}.icon-spinner:before{content:"\\f017";}</style>');
+			}
+		</script>
+	</head>
+	<body bgcolor="#070808" onload="$U.core.Launch.initialise()">
+
+		<div id="masterContainer" class="master-container" style="visibility: hidden"></div>
+
+
+		<div id="videoWrapper" class="mc-video-wrapper">
+		  <div id="videoContainer" class="mc-plugin-media-container"></div>
+		</div>
+		<!-- master container -->
+
+		<div id="loadingAnimation" class="loading-animation">
+			<i class="icon-spinner icon-spin icon-4x"></i>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,49 @@
+.screen.desktop {
+    overflow: hidden;
+    padding: 0 0px;
+}
+
+.scroller-vertical {
+	width: 100%;
+}
+
+.scroller-horizontal {
+	height: 100%;
+}
+
+.breadcrumb-container {
+	position: absolute;
+	left: 140px;
+	top: 20px;
+}
+
+.breadcrumb-item {
+	-webkit-transition: color .15s ease-out;
+	float: left;
+	cursor: pointer;
+	text-decoration: underline;
+	color: rgb(0, 100, 187);
+}
+
+.breadcrumb-item:hover {
+	color: rgb(0, 140, 218);
+}
+
+.breadcrumb-last-item {
+	float: left;
+}
+
+.breadcrumb-separator {
+	font-size: 1em;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.category-sidebar {
+	background: -webkit-linear-gradient(top, rgba(0, 35, 60, 0.8) 50%, #00070d 100%);
+	bottom: 20px;
+	right: 3px;
+	position: absolute;
+	top: 40px;
+}

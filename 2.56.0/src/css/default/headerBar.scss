@@ -1,0 +1,42 @@
+@import "application";
+@import "header";
+
+$__headerLogoImage:  _ff($phone: "../../images/nagra_logo_white_69.png", $tablet: "../../images/nagra_logo_white_90.png");
+$__headerLogoWidth : _ff($phone: 69px, $tablet: 90px);
+
+// The view's header holds the logo and application navigation
+.header {
+  @include _header_background;
+  padding: $_header_padding;
+  height: $_header_height;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.header-logo {
+  height: $_header_height;
+  width: $__headerLogoWidth;
+  background-image: url($__headerLogoImage);
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.header-icons {
+  line-height: $_header_height;
+  color: $_header_toolsFontColor;
+}
+
+.back-button {
+  padding: $_header_padding;
+  color: $_header_font_color;
+  cursor: pointer;
+  display: none;
+  left: 0;
+  position: absolute;
+   &:active {
+	background-color: $_header_tools_active_color;
+    color: $_header_activeTabFontColor;
+  }
+}

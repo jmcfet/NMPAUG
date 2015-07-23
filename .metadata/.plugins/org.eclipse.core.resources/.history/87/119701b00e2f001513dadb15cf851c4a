@@ -1,0 +1,22 @@
+// The background color of asset tiles
+$_asset_tile_BGColor : rgba(#000000, 0.1);    //JRM
+// The background color of the text strap
+$_asset_tile_textBgColor : $_palette_color12;
+// The color of the remove from favourites button
+$_asset_tile_RemoveColor:  $_palette_color5;
+// The color of the text within the remove button
+$_asset_tile_ButtonTextColor: $_palette_color8;
+// The background color of the text strap an unsubscribed item
+$_asset_tile_unsubcribed_textBgColor : $_palette_color14;
+// The text color in the strap of an unsubscribed item
+$_asset_tile_unsubcribed_textColor : $_palette_color15;
+// The border color applied to an asset when active
+$_asset_tile_hover_highlight : $_palette_color8;
+// The outline color applied to an asset when active
+$_asset_tile_touch_highlight : $_palette_color8;
+// Color of the free star
+$_asset_tile_free_star : $_palette_color16;
+// Color of the free star border
+$_asset_tile_free_star_border : $_palette_color8;
+// The text color of matched search criteria in the asset tile
+$_asset_tile_search_match_textColor : $_palette_color20;

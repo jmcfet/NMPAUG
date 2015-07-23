@@ -1,0 +1,139 @@
+<project>
+
+	<property name="src.css.dir" location="${src.dir}/css" />
+	<property name="dst.css.dir" location="${dst.dir}/css" />
+	<property name="tmp.css.dir" location="${tmp}/tmpcss" />
+	
+	<property file="version.properties"/>
+
+	<property name="slash.char" value="/" />
+	<property name="backslash.char" value="\" />
+
+	<!-- Path to the sass / ruby binaries -->
+	<property name="sass.bin.dir" location="repository/lib/ruby/win64/2.0.0-p0/bin" />
+
+	<!-- Store the sass cache in tmp -->
+	<property name="sass.cache" location="${tmp}/sass.cache" />
+	
+	<property name="css.style" value="default" />
+
+	<target name="build">
+
+		<echo message="Build CSS..." />
+		
+		<!--property name="theme" value="edgeLight" -->
+		<echo message="Copy Default" />
+		<copy todir="${dst.css.dir}/">
+			<fileset dir="${src.css.dir}/default" includes="font/**,lib/**" />
+		</copy>
+		
+		<!-- Build only the required theme for each platform -->
+		<antcall target="build.css">
+			<param name="theme" value="${theme.phone}" />
+			<param name="formfactor" value="phone" />
+		</antcall>
+
+		<antcall target="build.css">
+			<param name="theme" value="${theme.tablet}" />
+			<param name="formfactor" value="tablet" />
+		</antcall>
+
+		<antcall target="build.css">
+			<param name="theme" value="${theme.desktop}" />
+			<param name="formfactor" value="desktop" />
+		</antcall>
+
+	</target>
+
+	<!-- Build a version of the CSS
+	     param theme
+	     param formfactor
+	-->
+	<target name="build.css">
+		<echo message="Build CSS for ${theme} / ${formfactor}..." />
+		
+		<!-- Set the src and dst directories -->
+		<property name="src" location="${src.css.dir}/${theme}" />
+		<property name="dst" location="${dst.css.dir}/${formfactor}" />
+		<property name="def" location="${src.css.dir}/default" />
+		<property name="temp" location="${tmp.css.dir}/" />
+		
+		<!-- Convert the input and output paths to use slashes instead of back slashes.
+		     This is required for the colon seperated directoried to update. -->
+		
+		<convert.path.characters input="temp" output="sass.input.dir" />
+		<convert.path.characters input="dst" output="sass.output.dir" />
+		
+		<delete dir="${tmp.css.dir}" />
+		<echo message="Copy files to temp: ${temp}" />
+		
+		<!-- Copy all the non .scss files -->
+		<copy todir="${dst}">
+			<fileset dir="${src}" excludes="**/*.scss,font/**,lib/**" />
+		</copy>
+		
+		<!-- Create the _form_factor.scss file -->
+		<echo file="${temp}/_form_factor.scss" message="$_form_factor: ${formfactor};" />
+		
+		<!-- Copy files from the default directory to temp-->
+		<copy todir="${temp}">
+			<fileset dir="${def}" includes="**/*.scss" />
+		</copy>
+		
+		<!-- Copy files from the src directory to temp-->
+		<copy todir="${temp}">
+			<fileset dir="${src}" includes="**/*.scss" />
+		</copy>
+		
+		<echo message="${basedir}" />
+		
+		<!-- Run sass to compile all the .scss files -->
+		<!-- for UNIX (e.g. on Jenkins server) -->
+		<exec executable="sass" failonerror="true" osfamily="unix">
+			<arg value="--trace" />
+			<arg value="--line-comments" />
+			<arg value="--debug-info" />
+			<arg value="--scss" />
+			<arg value="--cache-location" />
+			<arg value="${sass.cache}/" />
+			<arg value="--style" />
+			<arg value="${css.style}" />
+			<arg value="--update" />
+			<arg value="${sass.input.dir}:${sass.output.dir}" />
+		</exec>
+		
+		<!-- for windows -->
+		<exec executable="${sass.bin.dir}\sass.bat" dir="${sass.bin.dir}" failonerror="true" osfamily="windows">
+			<arg value="--trace" />
+			<arg value="--line-comments" />
+			<arg value="--debug-info" />
+			<arg value="--scss" />
+			<arg value="--cache-location" />
+			<arg value="${sass.cache}/" />
+			<arg value="--style" />
+			<arg value="${css.style}" />
+			<arg value="--update" />
+			<arg value="${sass.input.dir}:${sass.output.dir}" />
+		</exec>
+		
+	</target>
+
+	<!-- Convert back slashes (\) to slashes (/) -->
+	<macrodef name="convert.path.characters">
+		<attribute name="input" />
+		<attribute name="output" />
+		<sequential>
+			<loadresource property="@{output}">
+				<propertyresource name="@{input}" />
+				<filterchain>
+					<tokenfilter>
+						<filetokenizer />
+						<replacestring from="${backslash.char}" to="${slash.char}" />
+					</tokenfilter>
+				</filterchain>
+			</loadresource>
+		</sequential>
+	</macrodef>
+
+</project>
+

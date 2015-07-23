@@ -1,0 +1,118 @@
+@import "application";
+@import "multi_browse_theme"; 
+
+$multiBrowseButtonDisabledOpacity: 0.6;
+$multiBrowseButtonHeight: 40px;
+$multiBrowseButtonTop : $_app_gutter/2;
+$multiButtonTextShadow : 0 0 10px $multi_browse_textShadow;
+$multiScrollerContainerHeight: 270px;
+$multiScrollersHeight: 200px;
+$multiBrowseScreenArrowWidth: 62px;
+$multiBrowseScreenArrowTop: 50%;
+$multiBrowseSubcategoryDividerHeight: 2px;
+$multiTitleHeight: 70px;
+
+.browse-screen {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.browse-screen.subcategory {
+  overflow-y: auto;
+}
+
+.browse-button {
+  -webkit-transition: /*background-color .2s ease-out, */opacity .2s ease-out, text-shadow .2s ease-out;
+  /*border-radius: 6px;*/
+  color: $multi_browse_textColor;
+  font-family: $_app_title_font;
+  font-size: $_app_xlarge_font_size;
+  height:$multiBrowseButtonHeight;
+  line-height: $multiBrowseButtonHeight;
+  right: $_app_gutter;
+  top: $multiBrowseButtonTop;
+  cursor: pointer;
+  position: absolute;
+}
+
+.allcategories-button-disabled{
+  opacity: $multiBrowseButtonDisabledOpacity;
+}
+
+.browse-button:hover {
+  /*background-color: rgba(54, 131, 180, 0.5);*/
+  text-shadow: $multiButtonTextShadow;
+}
+
+.asset-scroller {
+  position: relative;
+}
+
+.desktop-browse-scroller-container-container {
+  height: $multiScrollerContainerHeight;
+  position: relative;
+}
+
+.desktop-browse-scroller {
+  padding: 0 0 $_app_gutter 0;
+}
+
+.desktop-browse-scroller-container {
+  height: $multiScrollersHeight;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.desktop-assetscroller-arrow {
+  width: $multiBrowseScreenArrowWidth;
+  padding: $_app_gutter;
+  background: $multi_browse_ScreenArrowBg;
+  top: $multiBrowseScreenArrowTop;
+  color: $multi_browse_ScreenArrowColor;
+  position: absolute;
+  cursor: pointer;
+  -webkit-transition: opacity .2s ease-out, background .2s;
+  opacity: 0;
+  &:hover {
+    background: $multi_browse_ScreenHoverArrowBg;
+  }
+}
+
+.desktop-browse-scroller-container-container:hover .desktop-assetscroller-arrow{
+  opacity: 1;
+}
+
+.desktop-assetscroller-arrow.disabled-arrow{//, .desktop-assetscroller-arrow.disabled-arrow:hover {
+  background: $multi_browse_ScreenArrowDisabledBg;
+}
+
+.browse-subcategory-header-container {
+  height: $multiTitleHeight;
+  width: 100%;
+  position: relative;
+}
+
+.browse-subcategory-header-line {
+  background: $multi_browse_ScreenHorizontalRule;
+  height: $multiBrowseSubcategoryDividerHeight;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.browse-subcategory-header-title {
+  color: $multi_browse_textColor;
+  font-family: $_app_title_font;
+  font-size: $_app_xxxlarge_font_size;
+  text-transform: uppercase;
+}
+
+.browse-subcategory-header-title-position {
+  height: $multiTitleHeight;
+  line-height: $multiTitleHeight;
+  position: absolute;
+  left: 0;
+  padding: 0;
+}
+

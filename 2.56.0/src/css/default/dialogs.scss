@@ -1,0 +1,501 @@
+@import "application";
+@import "ui-elements";
+@import "dialog_theme";
+
+// ******************************
+// Define variables for the scss
+// ******************************
+
+@mixin boxShadow {
+  @include _vendor_prefix(box-shadow, 1px 0px 10px 0px rgba(#000000, 0.8));
+}
+
+// The menu gradient colours
+$dialogMenuGradientColor1 : rgba( $_dialog_GradientColor1, _ff($phone: 1, $tablet: 0.8));
+$dialogMenuGradientColor2 : rgba( $_dialog_GradientColor2, _ff($phone: 1, $tablet: 0.8));
+
+//The overlay starts at 60px
+$overlaySettingsTop : $_app_screen_top;
+
+// Generic dialog styles
+$dialogPadding : _ff($phone: 5px, $tablet: 10px);
+
+// Fullscreen dialog layout sizes
+$fullscreenButtonWidth: 280px;
+$fullscreenFormWidth: 300px;
+$fullscreenPadding : 15px 0 0 0;
+$fullscreenBodyPadding: 10px;
+
+$fullscreenTitleSize: $_app_xxlarge_font_size;
+$fullscreenTitlePadding: 10px;
+
+// button styles for dialogs
+$buttonMinWidth : 100px;
+$dialogMaxWidth : 300px;
+$buttonMargin : _ff($phone: 5px, $tablet: 10px);
+$dialogButtonPaddingLeft : 33px;
+$dialogButtonPaddingRight : 15px;
+$iconLeft: 3px;
+
+// dialog text styles
+$textAlign : center;
+$textMargin : 0px;
+$textPadding: _ff($phone: 5px, $tablet: 10px);
+$textPaddingDialogPadded: _ff($phone: 5px 5px 5px 0px, $tablet: 10px 10px 10px 0px);
+
+// Dialog list items styles
+$listItemHeight :  _ff($phone: 52px, $tablet: 50px);
+$listOpacity : _ff($phone: 0.6, $tablet: 1);
+$listFontColor : _ff($phone: $_app_text_color, $tablet: $_app_text_color);
+$listPadding : _ff($phone: 0 10px, $tablet: 0 10px);
+$listBackgroundPosition : _ff($phone: absolute, $tablet: relative);
+
+// Dialog input styles
+$inputMargin : _ff($phone: 5px 0 5px 0, $tablet: 10px 0 10px 0);
+$inputMinWidth : 280px;
+$inputWarningTop : _ff($phone: 15px, $tablet: 25px);
+
+// dialog Misc styles
+$opacity : 0.6;
+$iconPadding : _ff($phone: 0 15px 0 0, $tablet: 0 10px 0 0);
+$labelPadding : _ff($phone: 0 5px 0 0, $tablet: 0 10px 0 0);
+
+$dialogOverlayBackground: url(../../images/1x1trans.gif);
+
+$settingsDialogFontSize: $_app_large_font_size;
+$listItemFontSize: _ff($phone: $_app_large_font_size, $tablet: $_app_font_size);
+$radioListItemFontSize: $_app_font_size;
+
+$dialogButtonMarginDialogPadded : _ff($phone: 5px 5px 0px 0px, $tablet: 10px 10px 0px 0px);
+
+$purchaseDialogTitleSize: $_app_xlarge_font_size;
+
+$dialogListNoBgMargin: 15px 10px 30px 10px;
+$dialogListNoBgFontSize : 20px;
+
+$dialogListSpanWidth: 25px;
+$dialogListSpanPaddingLeft : 10px;
+
+
+// ******************************
+// Define css for dialog classes
+// ******************************
+
+.dialog-bold {
+  font-weight: bold;
+}
+
+.dialog-fullscreen {
+  @include _screen_background;
+  text-align: $textAlign;
+  padding: $fullscreenPadding;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0px);
+}
+
+.dialog-fullscreen .dialog-body{
+  background: none;
+}
+
+.dialog-fullscreen .dialog-button{
+  @include _ui_button_large;
+  width: $fullscreenButtonWidth;
+  margin: 5px auto;
+}
+
+.dialog-fullscreen .dialog-button .dialog-button-icon-left{
+  @include _ui_large_button_icon;
+}
+
+.dialog-fullscreen .dialog-button .dialog-button-icon-right{
+  @include _ui_large_button_icon;
+}
+
+.dialog-fullscreen.purchase-dialog .dialog-fullscreen-title{
+  font-size: $purchaseDialogTitleSize;
+}
+
+.dialog-fullscreen.purchase-dialog .dialog-button-container .dialog-button{
+  margin: 10px 5px 0 0;
+}
+
+.dialog-fullscreen .dialog-body{
+  padding: $fullscreenBodyPadding;
+  color: $_dialog_titleBarFontColor;
+}
+
+.dialog-body.dialog-padding .dialog-text {
+  padding: $textPaddingDialogPadded;
+}
+
+.dialog-body.dialog-padding .dialog-button-container .dialog-button {
+  margin: $dialogButtonMarginDialogPadded;
+}
+
+.dialog-input-wrapper{
+  display:block;
+  position: relative;
+}
+
+.dialog-fullscreen form {
+  display: inline-block;
+  text-align: left;
+}
+
+.dialog-input{
+  @include _ui_input_large;
+  margin: $inputMargin;
+  min-width: $inputMinWidth;
+  width: 100%;
+}
+
+.dialog-input[type="radio"]{
+  display:none;
+}
+
+.dialog-input[type="radio"] + label{
+  cursor: pointer;
+  position: relative;
+}
+
+.dialog-input[type="radio"] + label:before{
+  content: "\f096";
+  font-family: FontAwesome;
+  padding : $labelPadding;
+
+}
+
+.dialog-input[type="radio"]:checked+label:before {
+  content: "\f046";
+  font-family: FontAwesome;
+}
+
+.dialog-input[type="checkbox"]{
+  display:none;
+}
+
+.dialog-input[type="checkbox"] + label{
+  cursor: pointer;
+  position: relative;
+}
+
+.dialog-input[type="checkbox"] + label:before{
+  content: "\f096";
+  font-family: FontAwesome;
+  padding : $labelPadding;
+
+}
+
+.dialog-input[type="checkbox"]:checked+label:before {
+  content: "\f046";
+  font-family: FontAwesome;
+  padding : 0 8px 0 0
+}
+
+.dialog-input.required{
+  border: 3px solid red !important;
+}
+
+.dialog-input-warning{
+  position: absolute;
+  top: $inputWarningTop;
+  right: $_app_gutter;
+  color: $_dialog_icon_warning;
+}
+
+.dialog-fullscreen-title{
+  font-size : $fullscreenTitleSize;
+  padding: $fullscreenTitlePadding;
+  color: $_dialog_titleBarFontColor;
+}
+
+.dialog-overlay{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: $dialogOverlayBackground;
+}
+
+.dialog-overlay-modal{
+  background: $_dialog_overlayModalBgColor;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.no-radius {
+  @include _ui_no_border_radius;
+}
+
+.dialog {
+  @include boxShadow;
+  // @include _ui_full_border_radius;
+  max-width: $dialogMaxWidth;
+  position: absolute;
+  overflow: hidden;
+}
+
+.dialog-title-bar{
+  // @include _ui_top_border_radius;
+  background : $_dialog_titleBarBgColor;
+  text-align : $textAlign;
+  padding: $dialogPadding;
+  color: $_dialog_titleBarFontColor;
+}
+
+.dialog-fullscreen.purchase-dialog .dialog-fullscreen-title h2, .dialog-title-bar h2{
+  @include app_ellide;
+}
+
+.dialog-body{
+  @include _ui_bottom_border_radius;
+  background: $_dialog_Bg_color;
+  padding: $dialogPadding;
+}
+
+.dialog-toast{
+  @include _ui_full_border_radius;
+  background: $_dialog_Bg_color;
+  padding: $dialogPadding;
+}
+
+.dialog-form-padding{
+  padding:0 10px;
+}
+
+.dialog-no-padding{
+  padding:0px;
+}
+
+.dialog-button-container{
+  text-align: $textAlign;
+}
+
+.dialog-button {
+  @include _ui_button_small;
+  min-width: $buttonMinWidth;
+}
+
+.btn-padding {
+	padding-left: $dialogButtonPaddingLeft;
+ 	padding-right: $dialogButtonPaddingRight;
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}
+
+.dialog-button-icon-left{
+  @include _ui_small_button_icon;
+  margin-left: $buttonMargin;
+  float: left;
+  position: absolute;
+  left: $iconLeft;
+}
+
+.dialog-button-icon-right{
+  @include _ui_small_button_icon;
+  margin-right: $buttonMargin;
+  float: right;
+}
+
+.dialog-text{
+  margin : $textMargin;
+  padding: $textPadding;
+}
+
+.dialog-text-hidden{
+  display: none;
+}
+
+.dialog-text-settings{
+  margin : $textMargin;
+  padding: $textPadding;
+  opacity : $opacity;
+  font-size : $settingsDialogFontSize;
+  color: $_dialog_textSettingsFontColor;
+}
+
+.dialog-list-background{
+  @include _simple_gradient($dialogMenuGradientColor1, 50%, $dialogMenuGradientColor2, 100%);
+  top:  0;
+  bottom: 0;
+  position: $listBackgroundPosition;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dialog-list-background .dialog-list{
+  @include _ui_list_items_menu;
+  opacity: $listOpacity;
+  color: $_palette_color6;
+}
+
+.dialog-list{
+  @include _ui_list_items;
+  opacity: $listOpacity;
+}
+
+.dialog-list-no-bg{
+  opacity: 0.6;
+  margin: $dialogListNoBgMargin;
+  font-size: $dialogListNoBgFontSize;
+  opacity: $listOpacity;
+}
+
+.dialog-list span{
+  float: left;
+  width: $dialogListSpanWidth;
+  color: black;
+  padding-left: $dialogListSpanPaddingLeft;
+}
+
+.dialog-list-no-bg span{
+  float: left;
+  width: $dialogListSpanWidth;
+}
+
+.dialog-list-item{
+  display: table-cell;
+  padding: $listPadding;
+  color: $_dialog_listFontColor;
+  font-size: $listItemFontSize;
+}
+
+.dialog-radio-label-dark{
+  display: block;
+  padding: $listPadding;
+  font-size: $radioListItemFontSize;
+  color: $_dialog_radioLabelDarkFontColor;
+}
+//this radio button is in the phone settings menu
+.dialog-radio-label-light{
+  display: block;
+  padding: $listPadding;
+  font-size: $listItemFontSize;
+  color: $_dialog_radioLabelLightFontColor;
+}
+
+.dialog-radio {
+  padding: 0;
+}
+
+.dialog-radio .dialog-radio-label-dark {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.dialog-input[type="radio"] + label.dialog-radio-label-light:before{
+  padding : $iconPadding;
+}
+
+.dialog-input[type="radio"]:checked+label.dialog-radio-label-light:before {
+  padding : $iconPadding;
+}
+
+.dialog-checkbox-label-dark{
+  display: block;
+  padding: $listPadding;
+  font-size: $radioListItemFontSize;
+  color: $_dialog_radioLabelDarkFontColor;
+}
+//this checkbox button is in the phone settings menu
+.dialog-checkbox-label-light{
+  display: block;
+  padding: $listPadding;
+  font-size: $listItemFontSize;
+  color: $_dialog_radioLabelLightFontColor;
+}
+
+.dialog-checkbox {
+  padding: 0;
+}
+
+.dialog-checkbox .dialog-checkbox-label-dark {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.dialog-input[type="checkbox"] + label.dialog-checkbox-label-light:before{
+  padding : $iconPadding;
+}
+
+.dialog-input[type="checkbox"]:checked+label.dialog-checkbox-label-light:before {
+  padding : $iconPadding;
+}
+
+.dialog-list-icon{
+  // line-height: $listItemHeight;
+  // float :left;
+  // padding : $iconPadding;
+}
+
+.dialog-settings{
+  @include boxShadow;
+  @include _ui_full_border_radius;
+  overflow: hidden;
+  height: 100%;
+}
+
+.dialog-overlay-settings{
+  display: block;
+  position: absolute;
+  top: $overlaySettingsTop;
+  bottom: 0px;
+  width: 100%;
+  @include _simple_gradient($dialogMenuGradientColor1, 50%, $dialogMenuGradientColor2, 100%);
+}
+
+.dialog-language-table {
+  display: table;
+  margin: 20px auto;
+}
+
+.dialog-language-cell {
+  display: table-cell;
+  text-align: center;
+  padding: 0 20px;
+  color: $_dialog_titleBarFontColor;
+}
+
+.dialog-language-cell-selected {
+  display: table-cell;
+  text-align: center;
+  padding: 0 20px;
+  color: $_dialog_titleBarFontColor;
+  font-weight: bold;
+}
+
+.dialog-language-cell:hover {
+  text-shadow: 0 0 10px hsl(0, 100%, 100%);
+}
+
+.dialog-version-info {
+  margin-top:0;
+}
+
+.dialog-version-info:first-line {
+  font-family: $_app_title_font;
+}
+
+.dialog-active-highlight, .dialog-active-highlight a, .dialog-active-highlight label{
+  color : $_dialog_touch_active_font_color !important;
+  opacity : $_dialog_touch_opacity !important;
+}
+
+.dialog-star-rating {
+  text-align : center;
+  margin-top : 0;
+}
+
+.dialog-star {
+  margin : $buttonMargin;
+  cursor: pointer;
+}

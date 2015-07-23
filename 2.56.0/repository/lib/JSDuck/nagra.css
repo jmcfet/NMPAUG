@@ -1,0 +1,47 @@
+/*Overides For JSDuck Default Template */
+#north-region {
+  height: 130px !important;
+  margin-bottom: 40px;
+  background: -webkit-linear-gradient(top, rgba(0,71,130,1) 0%,rgba(0,7,13,1) 100%) !important;
+}
+#north-region-innerCt {
+  height: 110px !important;
+}
+.x-box-layout-ct {
+  height: auto !important;
+}
+#doctabs {
+  top:77px !important;
+}
+#footer-content {
+  margin-top: 40px;
+}
+.dropdown {
+  width:620px !important;
+}
+#menu-1011 {
+  left: 500px !important;
+}
+#header-content {
+  background: transparent !important;
+  background-image: url('../images/nagra.png') !important;
+  background-position:left !important; 
+  background-repeat:no-repeat !important;
+  height: 55px;
+  width: 300px;
+  padding-left: 150px;
+  padding-top: 30px;
+  font-size: 18px;
+}
+
+#footer {
+  height: 60px !important;
+  position: absolute;
+  top: auto !important;
+  bottom: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  background-image: url('../images/nagra.jpg');
+  background-position:left; 
+  background-repeat:no-repeat;
+}

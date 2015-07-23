@@ -1,0 +1,325 @@
+<project name="JoinIn" default="build">	
+	
+	<!-- default version text (gets overwritten when doing a release)-->
+	<property file="version.properties"/>
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+	  <classpath>
+	    <pathelement location="repository/lib/ant-contrib/ant-contrib-0.6/lib/ant-contrib-0.6.jar" />
+	  </classpath>
+	</taskdef>
+			
+	<property name="tmp" location="${java.io.tmpdir}/ant-temp" />
+	<mkdir dir="${tmp}" />
+	
+	<!--override to change-->
+	<property name="http.deploy.dir" value="c:/temp/" />
+
+	<!-- The src -->
+	<property name="src.dir" location="src" />
+	<!-- Deploy the application here -->
+	<property name="dst.dir" location="${http.deploy.dir}/application" />
+	<!-- setup jsduck executable -->
+	<condition property="jsduck.executable" value="repository/scripts/runjsduck.sh" else="repository\lib\JSDuck\jsduck.exe">
+		<os family="unix" />
+	</condition>
+	<!-- where to put docs -->
+	<condition property="docs.dst.dir" value="docs/" else="${http.deploy.dir}/docs">
+		<os family="unix" />
+	</condition>	
+	<!-- where to put automated builds -->
+	<condition property="auto.deploy.dir" value="/var/www/html/" else="C:\web\">
+		<os family="unix" />
+	</condition>
+	
+	<import file="css-build.xml" as="css" />
+	<import file="test-build.xml" as="test" />
+		
+	<!-- Complete build -->
+	<target name="build" description="Build" depends="check.language.bundles,find.modified,delete.dst.dir,copy.to.dst.dir,css.build">
+		<echo message="${tmp}" />
+	</target>
+
+	<!-- Quick build -->
+	<target name="quick.build" description="Build only changed files" depends="find.modified">
+		<if>
+			<!-- If the css is modified then do a complete build -->
+			<isset property="css.modified" />
+			<then>
+				<antcall target="build" />
+			</then>
+			<else>
+				<if>
+					<!-- If the src is modified but not the css then copy to deploy ignoring css -->
+					<isset property="src.modified" />
+					<then>
+						<delete includeemptydirs="true">
+							<fileset dir="${dst.dir}" excludes="css/**" />
+						</delete>
+						<antcall target="copy.to.dst.dir" />				
+					</then>
+				</if>
+			</else>
+		</if>		
+	</target>
+	
+	<target name="find.modified">
+		
+		<convert.path.characters input="src.dir" output="src.dir.unix" />
+		
+		<fileset id="src.fileset" dir="${src.dir.unix}">
+			<modified>
+				<param name="cache.cachefile" value="${tmp}/cache.properties"/>
+			</modified>
+		</fileset>
+		
+		<pathconvert dirsep="/" property="modified" refid="src.fileset">
+			<regexpmapper handledirsep="true" from="${src.dir.unix}(.*)" to="\1" />
+		</pathconvert>		
+		
+		<if>
+			<equals arg1="${modified}" arg2="" />
+			<then>
+				<echo message="Nothing is modified" />			
+			</then>
+			<else>
+				<!--<echo message="${modified}" />-->
+				<property name="src.modified" value="true" />
+				<propertyregex property="css.modified" input="${modified}" regexp="/(css)/" select="\1" />
+				<if>
+					<isset property="css.modified" />
+					<then>
+						<echo message="CSS is modified" />
+					</then>
+					<else>
+						<echo message="CSS is not modified" />
+					</else>
+				</if>
+			</else>
+		</if>	
+		
+	</target>
+
+	<!-- copies over the desird configuration.js file --> 
+	<target name="copy.config" description="Copy Configuration Files">
+		
+		<!-- copy config files to core -->
+		<echo message="Copying configuration files"/>
+		<echo message="todir=${dst.dir}/js/core/"/>
+		<echo message="fileset dir=${src.dir}/js/core/config/${config.js.file}"/>
+		<copy todir="${dst.dir}/js/core/" overwrite="true">
+			<fileset dir="${src.dir}/js/core/config/${config.js.file}" />
+		</copy>
+		<echo message="Copying ImageURLHelper"/>
+		<copy file="${src.dir}/js/core/config/${config.js.file}/ImageURLHelper.js" tofile="${dst.dir}/js/core/util/ImageURLHelper.js" overwrite="true"/>
+		
+		<!-- remove excess config files-->
+		<delete dir="${dst.dir}/js/core/config" />
+		<delete file="${dst.dir}/js/core/ImageURLHelper.js" />
+	</target>
+
+	<!-- gets the version number (either from version.properties or from Jenkins) and puts it into appInstalled and Version.js -->
+	<target name="write.version" description="Runs Plato javascript analysis tool">
+		<echo message="Writing version: ${version}" />
+		<copy file="${src.dir}/js/core/version/Version.js" tofile="${dst.dir}/js/core/version/Version.js" overwrite="true"/>
+		<replace file="${dst.dir}/js/core/version/Version.js" token="%UI_VERSION%" value="${version}"/>
+		<replace file="${dst.dir}/js/core/version/Version.js" token="%JSFW_VERSION%" value="${jsfw.version}"/>
+		<echo file="${dst.dir}/appInstalled" append="false">${version}</echo>
+	</target>
+	
+	<!-- Sets production mode for the build -->
+	<target name="write.production" description="Setting production mode">
+		<echo message="Writing Production Flag: ${production.mode}" />
+		<replace file="${dst.dir}/js/core/Configuration.js" token="&quot;%PRODUCTION_MODE%&quot;" value="${production.mode}" />
+	</target>
+
+
+	<!-- The location of the desired JSFW version -->
+	<property name="jsfw.src" location="${src.dir}/lib/jsfw/${jsfw.version}" />
+		
+	<!-- Copies over the desired JSFW version -->
+	<target name="copy.jsfw">
+		<!--
+		<echo message="Copying JSFW version: ${jsfw.version}" />
+		<copy todir="${dst.dir}/lib/jsfw">
+			<fileset dir="${jsfw.src}" />
+		</copy>
+		-->
+		<unzip src="${jsfw.src}.zip" dest="${dst.dir}/lib/jsfw">
+			<patternset>
+				<include name="src/**/*.*" />
+			</patternset>
+			    <mapper>
+			        <globmapper from="src/*" to="*"/>
+			    </mapper>
+			
+		</unzip>
+	
+	</target>
+	
+	<target name="delete.dst.dir">
+		<echo message="Delete dst directory..." />
+		<delete dir="${dst.dir}" />
+		<mkdir dir="${dst.dir}" />		
+	</target>
+			
+	<target name="copy.to.dst.dir" >
+		<echo message="Copy to dst directory..." />
+		<copy todir="${dst.dir}">
+			<fileset dir="${src.dir}" excludes="**/jsfw/**,css/**,**/Configuration*.js,**/Version.js" />
+		</copy>
+		<antcall target="copy.jsfw" />	
+		<antcall target="copy.config" />
+		<antcall target="write.version" />
+		<antcall target="write.production" />
+	</target>	
+	
+	<!--create jsduck documentation-->
+	<target name="run.jsduck" description="Create the JSDuck docs">
+		<chmod perm="+x" file="${jsduck.executable}" osfamily="unix"/>
+		<delete dir="${docs.dst.dir}" />
+		<exec executable="${jsduck.executable}">
+			<arg value="--o" />
+			<arg value="${docs.dst.dir}" />
+			<arg value="--config"/>
+			<arg value="repository/lib/JSDuck/jsduck_config.json"/>
+		</exec>
+	</target>
+	
+	<!-- runs plato code analysis -->
+	<target name="run.plato" description="Runs Plato javascript analysis tool">
+		<exec executable="cmd">
+			<arg value="/c"/>
+			<arg value="plato"/>
+			<arg value="-r"/>
+			<arg value="-d"/>
+			<arg value="report"/>
+			<arg value="src\js"/>
+	    </exec>
+	</target>
+	
+	<!-- used by jenkins, zips up application code and puts it with the build information into the http directory on the server -->
+	<target name="publish.build" description="Publishes the built files on the HTTP server" >
+		<property environment="env" />
+		<property name="publish.dir" value="${env.JOB_NAME}" />
+		<zip destfile="${auto.deploy.dir}builds/refui/${publish.dir}/${env.BUILD_NUMBER}/RefUI_${config.js.file}_${version}_${env.BUILD_NUMBER}.zip" basedir="${http.deploy.dir}" />
+		<copy todir="${auto.deploy.dir}builds/refui/${publish.dir}/${env.BUILD_NUMBER}/docs">
+			<fileset dir="${docs.dst.dir}"/>
+		</copy>
+		<copy todir="${auto.deploy.dir}builds/refui/${publish.dir}/${env.BUILD_NUMBER}">
+			<fileset dir="${env.WORKSPACE}/../builds/${env.BUILD_NUMBER}"/>
+		</copy>
+		<delete dir="${docs.dst.dir}" />
+		<delete dir="${http.deploy.dir}" />
+		<!-- copy all this latest build into the 'latest' folder for easy access -->
+		<delete dir="${auto.deploy.dir}builds/refui/${publish.dir}/latest" />
+		<copy todir="${auto.deploy.dir}builds/refui/${publish.dir}/latest">
+			<fileset dir="${auto.deploy.dir}builds/refui/${publish.dir}/${env.BUILD_NUMBER}"/>
+		</copy>
+	</target>
+
+	
+	<!-- used by jenkins-test (test-ci1), zips up application code -->
+
+	<target name="publish-test.build" description="Publishes the built files on the HTTP server" >
+
+		<property environment="env" />
+
+		<property name="publish.dir" value="${env.JOB_NAME}" />
+
+		<zip destfile="${auto.deploy.dir}builds/refui/${publish.dir}/${env.BUILD_NUMBER}/${env.BUILD_TAG}.zip" basedir="${http.deploy.dir}" />
+
+	</target>	
+	
+
+	<!-- when releasing will clear the 'UI-ENG-BUILD ' from the version.js -->
+	<target name="prerelease" description="Removes the 'UI-ENG-BUILD ' from the version.js file">
+		<replace file="src/js/core/version/Version.js" token="UI-ENG-BUILD " value=""/>
+	</target>
+	
+	<!-- when releasing will add the 'UI-ENG-BUILD ' back into version.js -->
+	<target name="postrelease" description="Puts the 'UI-ENG-BUILD ' back in the version.js file">
+		<!--
+		<replace file="src/js/core/version/Version.js" token='var PRODUCT_NAME = "";' value='var PRODUCT_NAME = "UI-ENG-BUILD ";'/>
+		-->
+	</target>
+	
+	<target name="check.language.bundles">
+		<!--
+			The reg exp to match each line.
+			If the line is a (possibly commented) property name / value pair then \2 will be the property name.
+			Otherwise \2 will be empty
+		-->		
+		<property name="re.match" value="^((?:\s*//)?\s*this\.(.*?)\s*=\s*(.*))|(.*)$" />
+		
+		<!-- Copy the en_gb bundle to tmp -->
+		<property name="en_gb.file" location="${tmp}/en_gb.js" />
+		<copy file="src/bundles/en_gb/LanguageBundle.js" tofile="${en_gb.file}" overwrite="true" />
+		<!-- Run the line by line reg exp -->
+		<replaceregexp file="${en_gb.file}" match="${re.match}" replace="\2" byline="true" />
+		<!-- Remove any blank lines -->
+		<replaceregexp file="${en_gb.file}" match="(\r?\n)\s*\r?\n" replace="\1" flags="g" />
+				
+		<!-- Copy the zh_cn bundle to tmp -->				
+		<property name="zh_cn.file" location="${tmp}/zh_cn.js" />
+		<copy file="src/bundles/zh_cn/LanguageBundle.js" tofile="${zh_cn.file}" overwrite="true" />
+		<!-- Run the line by line reg exp -->		
+		<replaceregexp file="${zh_cn.file}" match="${re.match}" replace="\2" byline="true" />
+		<!-- Remove any blank lines -->		
+		<replaceregexp file="${zh_cn.file}" match="(\r?\n)\s*\r?\n" replace="\1" flags="g" />	
+
+		<!-- Copy the es_es bundle to tmp -->				
+		<property name="es_es.file" location="${tmp}/es_es.js" />
+		<copy file="src/bundles/es_es/LanguageBundle.js" tofile="${es_es.file}" overwrite="true" />
+		<!-- Run the line by line reg exp -->		
+		<replaceregexp file="${es_es.file}" match="${re.match}" replace="\2" byline="true" />
+		<!-- Remove any blank lines -->		
+		<replaceregexp file="${es_es.file}" match="(\r?\n)\s*\r?\n" replace="\1" flags="g" />	
+
+		<!-- Check whether the files containing the property names are the same -->		
+		<condition property="en.zh.bundles.match" value="true">
+		  <filesmatch file1="${en_gb.file}" file2="${zh_cn.file}" textfile="true" />
+		</condition>
+			
+		<!-- If the files are different then run a diff and fail the build-->		
+		<if>
+			<not>
+				<isset property="en.zh.bundles.match" />
+			</not>
+			<then>
+				<condition property="diff.executable" value="diff" else="fc">
+					<os family="unix" />
+				</condition>				
+				<exec executable="${diff.executable}">
+					<arg line="${en_gb.file} ${zh_cn.file}" />
+				</exec>
+				<fail message="English and Chinese Language Bundles do not Match" />				
+			</then>
+		</if>	
+		
+		<!-- Check whether the files containing the property names are the same -->		
+		<condition property="en.es.bundles.match" value="true">
+		  <filesmatch file1="${en_gb.file}" file2="${es_es.file}" textfile="true" />
+		</condition>
+			
+		<!-- If the files are different then run a diff and fail the build-->		
+		<if>
+			<not>
+				<isset property="en.es.bundles.match" />
+			</not>
+			<then>
+				<condition property="diff.executable" value="diff" else="fc">
+					<os family="unix" />
+				</condition>				
+				<exec executable="${diff.executable}">
+					<arg line="${en_gb.file} ${es_es.file}" />
+				</exec>
+				<fail message="English and Spanish Language Bundles do not Match" />				
+			</then>
+		</if>			
+						
+	</target>
+	<!-- Now use fc or diff to compare the files... -->
+	
+</project>
+
