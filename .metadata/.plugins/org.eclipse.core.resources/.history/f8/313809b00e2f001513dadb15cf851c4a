@@ -1,6 +1,0 @@
-@import "header_theme";
-// Header height
-$_header_height:  $_app_screen_top;
-// Header padding
-$_header_padding: 0 $_app_gutter;
-    

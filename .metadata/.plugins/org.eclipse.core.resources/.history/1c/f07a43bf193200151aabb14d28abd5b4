@@ -262,7 +262,7 @@
         text-shadow: 0 0 10px white;
         background-color: $_epg_ScrollArrowsHoverBgColor;
     }
-   
+    */
   }
    */
 }

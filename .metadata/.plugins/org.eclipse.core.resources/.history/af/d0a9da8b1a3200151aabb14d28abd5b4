@@ -482,21 +482,21 @@ $U.mediaCard.MediaCardCallToActionBar = ( function() {
 			break;
 		case BUTTON.FAVOURITES_REMOVE:
 		    iconHolder.className = "icon-heart";
-		    iconHolder.style.color = '#FFFF00';      //JRM
+		    iconHolder.style.color = '#A8DB92';      //JRM
 			if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnRemoveFavourites")));
 			}
 			break;
 		case BUTTON.FAVOURITES_CHANNEL_ADD:
 		    iconHolder.className = "icon-heart-empty";
-		    iconHolder.style.color = '#FFFF00';      //JRM
+		    iconHolder.style.color = '#A8DB92';      //JRM
 			if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnAddChannelFavourites")));
 			}
 			break;
 		case BUTTON.FAVOURITES_CHANNEL_REMOVE:
 		    iconHolder.className = "icon-heart";
-		    iconHolder.style.color = '#FFFF00';      //JRM
+		    iconHolder.style.color = '#A8DB92';      //JRM
 		    if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnRemoveChannelFavourites")));
 			}
@@ -523,7 +523,7 @@ $U.mediaCard.MediaCardCallToActionBar = ( function() {
 			break;
 		case BUTTON.MORE_INFO:
 		    iconHolder.className = "icon-chevron-right";
-		    iconHolder.style.color = '#FFFF00';      //JRM
+		    iconHolder.style.color = '#A8DB92';      //JRM
 			if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnMoreInfo")));
 			}

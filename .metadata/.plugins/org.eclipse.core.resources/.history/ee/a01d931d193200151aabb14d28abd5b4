@@ -256,15 +256,13 @@
   text-align: center;
   visibility: hidden;
   top:0;
-  /*background-color: $_epg_ScrollArrowsBgColor;
+  background-color: $_epg_ScrollArrowsBgColor;
   @if $_form_factor == desktop{
       &:hover {
         text-shadow: 0 0 10px white;
         background-color: $_epg_ScrollArrowsHoverBgColor;
     }
-   
   }
-   */
 }
 
 .epg-arrows {
