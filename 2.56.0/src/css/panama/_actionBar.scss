@@ -10,7 +10,7 @@ $_actionBar_IconMargin: _ff($phone: 0 0 0 0, $tablet: 0 $_app_gutter 0 0, $deskt
 // Font size for icon elements
 $_actionBar_IconSize : $_app_xlarge_font_size;
 // Padding between Icons
-$_actionBar_IconPadding : 3px $_app_gutter;
+$_actionBar_IconPadding : 3px $_app_gutter;   
 
 @mixin _actionBar {
   @include box_shadow;
