@@ -16,7 +16,6 @@
 
 .nav-tabs > a {
 	background: $_palette_color11;
-	color:#a8db92;     
 	padding: 16px;
 	display:_ff($phone: block, $tablet: inline-block);
 }

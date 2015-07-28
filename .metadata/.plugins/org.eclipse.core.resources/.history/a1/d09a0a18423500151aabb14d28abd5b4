@@ -357,7 +357,6 @@ object,video{
   overflow: hidden;
   position: absolute;
   width: 100%;
-  background-color:#0f472e;
   top:0;
   bottom:$_app_gutter;
 }

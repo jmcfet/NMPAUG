@@ -266,7 +266,7 @@ $wideTileTimeSize: $_app_small_font_size;
 }
 
 .text-container {
-	background: black;
+	background: $_asset_tile_textBgColor;
 	padding: $textPadding;
 	bottom: 0;
 	position: absolute;
@@ -281,7 +281,7 @@ $wideTileTimeSize: $_app_small_font_size;
 }
 
 .time-container {
-	background: black;
+	background: $_asset_tile_textBgColor;
 	position: absolute;
 	top: 0;
 	padding: 5px
