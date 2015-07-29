@@ -2,7 +2,7 @@
  * Class to represents a generic timed 'Event' within the Application.  
  * When asked "shouldTriggerEvent()" with NOW it will derive whether it should or not be triggered.
  * @class $U.core.applicationevent.ApplicationEvent
- * @constructor
+ * @constructor  testing again
  */
 
 var $U = $U || {};
