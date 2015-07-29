@@ -2105,3 +2105,617 @@ Caused by: C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned
 	at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
 	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
 	... 41 more
+!SESSION 2015-07-29 11:42:04.092 -----------------------------------------------
+eclipse.buildId=3.6.0.201407100658
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:01.438
+!MESSAGE Cannot run program "ruby": CreateProcess error=2, The system cannot find the file specified
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.280
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.281
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: find_real_file(dir, name, options)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.282
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.282
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: Filesystem
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.283
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.283
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: Importers
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.284
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Sass
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.285
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.285
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting type declaration, but should have contained the type.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.286
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting type declaration, but should have contained the type.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:13.286
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.642
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.643
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: output_query_results(spec_tuples)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.643
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Gem::Commands::QueryCommand
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.644
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.645
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.669
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.669
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: perform_arguments(callable, args, keywords, splat)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.670
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Sass::Tree::Visitors::Perform
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.671
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.671
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: stack_trace()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.672
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.672
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting type declaration, but should have contained the type.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:15.673
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:19.585
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:19.586
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: adjust_color(color, kwargs)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:19.586
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Functions
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:19.587
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:19.588
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:20.637
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:20.638
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: compact_specs(specs)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:20.638
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Gem::Indexer
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:20.639
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:20.639
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:22.280
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:22.281
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: define()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:22.281
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: PackageTask
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:22.282
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:22.282
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:23.081
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:23.081
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: inject_values(str, values)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:23.082
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Util
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:23.082
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:23.083
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.846
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.847
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: download_to_cache(dependency)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.847
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Gem::RemoteFetcher
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.848
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.849
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.861
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.862
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: add_comment(comment, location)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.862
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: RDoc::ClassModule
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.863
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:24.863
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:25.724
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:25.724
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: special_fun()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:25.725
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Parser
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:25.725
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:25.726
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:28.288
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:28.289
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: hash()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:28.289
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Gem::Specification
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:28.290
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:28.291
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:29.107
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:29.108
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: parse_entries()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:29.109
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: RDoc::Parser::ChangeLog
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:29.109
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:29.110
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.573
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.574
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: test_log_level_orders()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.574
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: LoggerTest
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.575
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.575
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.576
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.577
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: test_log_level_orders()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.577
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: LoggerTest
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.578
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:36.578
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:37.232
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:37.233
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: parse(argv)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:37.234
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: RDoc::Options
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:37.234
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:37.235
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.217
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.218
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: Gem::Doctor
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.219
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.220
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.221
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.221
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: Gem::Doctor
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.222
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:40.223
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:43.636
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:43.637
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: gemdirs()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:43.638
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: RDoc::RI::Paths
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:43.638
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:43.639
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.671
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.672
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: _run_anything(type)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.672
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.673
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: Unit
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.673
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: MiniTest
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.674
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.675
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting type declaration, but should have contained the type.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.709
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.709
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: bmbm()
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.710
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Benchmark
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.711
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.794
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.795
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: int_from_prime_division(pd)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.795
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Prime
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.796
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:44.797
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:45.519
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Not supported yet.
+!STACK 0
+java.lang.UnsupportedOperationException: Not supported yet.
+	at org.jrubyparser.ast.LambdaNode.accept(LambdaNode.java:58)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:37)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitHashNode(InOrderVisitor.java:414)
+	at org.jrubyparser.ast.HashNode.accept(HashNode.java:57)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:37)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitCallNode(InOrderVisitor.java:193)
+	at com.aptana.ruby.core.ast.SourceElementVisitor.visitCallNode(SourceElementVisitor.java:230)
+	at org.jrubyparser.ast.CallNode.accept(CallNode.java:70)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitLocalAsgnNode(InOrderVisitor.java:456)
+	at com.aptana.ruby.core.ast.SourceElementVisitor.visitLocalAsgnNode(SourceElementVisitor.java:839)
+	at org.jrubyparser.ast.LocalAsgnNode.accept(LocalAsgnNode.java:62)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitIfNode(InOrderVisitor.java:438)
+	at org.jrubyparser.ast.IfNode.accept(IfNode.java:65)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitNewlineNode(InOrderVisitor.java:525)
+	at org.jrubyparser.ast.NewlineNode.accept(NewlineNode.java:67)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:37)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitDefnNode(InOrderVisitor.java:299)
+	at com.aptana.ruby.core.ast.SourceElementVisitor.visitDefnNode(SourceElementVisitor.java:346)
+	at org.jrubyparser.ast.DefnNode.accept(DefnNode.java:51)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitNewlineNode(InOrderVisitor.java:525)
+	at org.jrubyparser.ast.NewlineNode.accept(NewlineNode.java:67)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:37)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitClassNode(InOrderVisitor.java:213)
+	at com.aptana.ruby.core.ast.SourceElementVisitor.visitClassNode(SourceElementVisitor.java:260)
+	at org.jrubyparser.ast.ClassNode.accept(ClassNode.java:68)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitNewlineNode(InOrderVisitor.java:525)
+	at org.jrubyparser.ast.NewlineNode.accept(NewlineNode.java:67)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.core.ast.InOrderVisitor.visitRootNode(InOrderVisitor.java:668)
+	at com.aptana.ruby.core.ast.SourceElementVisitor.visitRootNode(SourceElementVisitor.java:848)
+	at org.jrubyparser.ast.RootNode.accept(RootNode.java:84)
+	at com.aptana.ruby.core.ast.AbstractVisitor.acceptNode(AbstractVisitor.java:53)
+	at com.aptana.ruby.internal.core.index.RubyFileIndexingParticipant.indexAST(RubyFileIndexingParticipant.java:73)
+	at com.aptana.ruby.internal.core.index.RubyFileIndexingParticipant.indexSource(RubyFileIndexingParticipant.java:61)
+	at com.aptana.ruby.internal.core.index.RubyFileIndexingParticipant.index(RubyFileIndexingParticipant.java:37)
+	at com.aptana.core.internal.build.IndexBuildParticipant.buildFile(IndexBuildParticipant.java:132)
+	at com.aptana.core.internal.build.LazyBuildParticipant.buildFile(LazyBuildParticipant.java:72)
+	at com.aptana.core.build.UnifiedBuilder.buildFile(UnifiedBuilder.java:614)
+	at com.aptana.core.build.UnifiedBuilder.doBuildFiles(UnifiedBuilder.java:525)
+	at com.aptana.core.build.UnifiedBuilder.buildFiles(UnifiedBuilder.java:497)
+	at com.aptana.core.build.UnifiedBuilder.fullBuild(UnifiedBuilder.java:343)
+	at com.aptana.core.build.UnifiedBuilder.build(UnifiedBuilder.java:178)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:733)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.239
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.240
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: update_gems(gems_to_update)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.241
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: Gem::Commands::UpdateCommand
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.241
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.242
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.313
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.313
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: map_dir(dir)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.314
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: MakeMakefile
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.315
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.316
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: checking_message(target)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.316
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.346
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.346
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: normalize_indentation(str)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.347
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: CommentNode
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.347
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.348
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.349
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected field decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.349
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected block on top of stack, but was: normalize_indentation(str)
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.350
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected method decl on top of stack, but was: CommentNode
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.350
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  Expected type decl on top of stack, but was: 
+
+!ENTRY com.aptana.ruby.core 4 0 2015-07-29 11:44:48.351
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  AST stack was empty upon exiting script, but should have contained the script.
+
+!ENTRY org.eclipse.ant.launching 4 0 2015-07-29 11:48:46.398
+!MESSAGE Ant Build Failed
+!STACK 1
+org.eclipse.core.runtime.CoreException: C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:31: The following error occurred while executing this line:
+C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+	at org.eclipse.ant.core.AntRunner.handleInvocationTargetException(AntRunner.java:452)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:384)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate.runInSameVM(AntLaunchDelegate.java:321)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate.launch(AntLaunchDelegate.java:274)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:700)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.launchBuild(ExternalToolBuilder.java:181)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.doBuildBasedOnScope(ExternalToolBuilder.java:169)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.build(ExternalToolBuilder.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:733)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:31: The following error occurred while executing this line:
+C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+	at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+	at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:392)
+	at org.apache.tools.ant.Target.performTasks(Target.java:413)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.eclipse.ant.internal.core.ant.EclipseDefaultExecutor.executeTargets(EclipseDefaultExecutor.java:32)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:672)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:378)
+	... 20 more
+Caused by: C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+	at org.apache.tools.ant.taskdefs.ExecTask.runExecute(ExecTask.java:646)
+	at org.apache.tools.ant.taskdefs.ExecTask.runExec(ExecTask.java:672)
+	at org.apache.tools.ant.taskdefs.ExecTask.execute(ExecTask.java:498)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:392)
+	at org.apache.tools.ant.Target.performTasks(Target.java:413)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+	at org.eclipse.ant.internal.core.ant.EclipseSingleCheckExecutor.executeTargets(EclipseSingleCheckExecutor.java:30)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+	... 41 more
+!SUBENTRY 1 org.eclipse.ant.core 4 1 2015-07-29 11:48:46.399
+!MESSAGE C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:31: The following error occurred while executing this line:
+C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+!STACK 0
+C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:31: The following error occurred while executing this line:
+C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+	at org.apache.tools.ant.ProjectHelper.addLocationToBuildException(ProjectHelper.java:551)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:444)
+	at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:392)
+	at org.apache.tools.ant.Target.performTasks(Target.java:413)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1368)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.eclipse.ant.internal.core.ant.EclipseDefaultExecutor.executeTargets(EclipseDefaultExecutor.java:32)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:672)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:378)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate.runInSameVM(AntLaunchDelegate.java:321)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate.launch(AntLaunchDelegate.java:274)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:700)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.launchBuild(ExternalToolBuilder.java:181)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.doBuildBasedOnScope(ExternalToolBuilder.java:169)
+	at org.eclipse.core.externaltools.internal.model.ExternalToolBuilder.build(ExternalToolBuilder.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:733)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: C:\Aptana Studio 3  July 2015\2.56.0\css-build.xml:106: exec returned: 1
+	at org.apache.tools.ant.taskdefs.ExecTask.runExecute(ExecTask.java:646)
+	at org.apache.tools.ant.taskdefs.ExecTask.runExec(ExecTask.java:672)
+	at org.apache.tools.ant.taskdefs.ExecTask.execute(ExecTask.java:498)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:392)
+	at org.apache.tools.ant.Target.performTasks(Target.java:413)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1399)
+	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+	at org.eclipse.ant.internal.core.ant.EclipseSingleCheckExecutor.executeTargets(EclipseSingleCheckExecutor.java:30)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1251)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+	... 41 more

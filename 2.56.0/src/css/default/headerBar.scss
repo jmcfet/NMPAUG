@@ -1,8 +1,8 @@
 @import "application";
 @import "header";
 
-$__headerLogoImage:  _ff($phone: "../../images/nagra_logo_white_69.png", $tablet: "../../images/nagra_logo_white_90.png");
-$__headerLogoWidth : _ff($phone: 69px, $tablet: 90px);
+$__headerLogoImage:  _ff($phone: "../../images/CWP_Logo69px_20141216.png", $tablet: "../../images/CWP_Logo90px_20141216.png",$desktop: "../../images/CWP_Logo 20141009.png");
+$__headerLogoWidth : _ff($phone: 69px, $tablet: 90px,$desktop: 270px);
 
 // The view's header holds the logo and application navigation
 .header {
