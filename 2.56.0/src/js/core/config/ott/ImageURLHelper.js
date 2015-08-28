@@ -11,10 +11,11 @@ $U.core.util.ImageURLHelper = ( function() {
 	var superClass = $U.core.util.BaseImageURLHelper;
 
 	//URL of Cover images for VOD
-	var VOD_IMAGE_PREFIX = "http://ott.nagra.com/stable/imagepath/";
+	var VOD_IMAGE_PREFIX = "http://186.75.76.4/";
 
 	// Appended to the VOD cover filename
-	var COVER_IMAGE_SUFFIX = "_cover";
+	//var COVER_IMAGE_SUFFIX = "_cover";
+	var COVER_IMAGE_SUFFIX = "";
 
 	var instance = null;
 

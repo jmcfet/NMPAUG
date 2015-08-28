@@ -4,7 +4,7 @@
 // ******************************
 // Define variables for the scss
 // ******************************
-
+       
 // The gutter is used to space elements
 $_app_gutter : _ff($phone: 10px, $tablet: 20px);
 
@@ -12,8 +12,8 @@ $_app_screen_top : _ff($phone: 40px, $tablet: 60px,$desktop:60px);     //JRM
 $_app_screen_bottom: _ff($phone: 38px, $tablet: 58px);
 
 // There are two typefaces, main for regular text, title for headings etc.
-$_app_font: vegur-regular, helvetica, arial, sans-serif;
-$_app_title_font: vegur-light, helvetica, arial, sans-serif;
+$_app_font: traderegular,  sans-serif;
+$_app_title_font: traderegular, helvetica, arial, sans-serif;
 
 $_app_small_font_size: 13px;
 $_app_font_size : 16px;
@@ -43,7 +43,7 @@ $_app_titleHeight: _ff($phone: 40px, $tablet: 70px, $desktop: 70px);
 // The app main title is used on the main browse screen as well as the multi-browse screen
 @mixin _app_main_title {
   @include app_ellide;
-  color: #3fae2a;
+  color: #a8db92;
   font-family: $_app_title_font;
   font-size: _ff($phone: $_app_xlarge_font_size, $tablet: $_app_xxxlarge_font_size, $desktop: $_app_xxlarge_font_size);
   height: $_app_titleHeight;

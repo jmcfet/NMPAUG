@@ -18,7 +18,7 @@ function CommonLanguageBundle() {
 	this.txtPassword = "contraseña";
 	this.txtUsername = "usuario";
 	this.txtDevice = "dispositivo";
-	//this.txtSignOnConnectionError = "Unable to connect to server";
+	this.txtSignOnConnectionError = "Unable to connect to server";
 	this.txtErrorSignOn = "Error al acceder";
 	this.txtERROR = "No es posible acceder";
 	this.txtSignOnPasswordError = "Su nombre de usuario y/o contraseña son incorrectos";

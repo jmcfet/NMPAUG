@@ -94,10 +94,12 @@ $inlineSearchContainerOpacity : _ff($phone: 0, $tablet: 0, $desktop :1);
 }
 
 .search-inline-container-icon{
-  color:black;
+  color:$search_icon_color; 
   line-height:normal;
   width: $inlineSearchIconWidth;
   cursor: pointer;
+  margin-top:2px;         //JRM
+  font-size: 1.5em
 }
 
 .search-inline-container-icon-close{
@@ -120,6 +122,8 @@ $inlineSearchContainerOpacity : _ff($phone: 0, $tablet: 0, $desktop :1);
   padding-right : $inputPaddingR;
   margin: 0;
   width: 100%;
+  background-color:$search_tools_background;
+  border-color: #31b031;   //JRM
 }
 
 .search-button {

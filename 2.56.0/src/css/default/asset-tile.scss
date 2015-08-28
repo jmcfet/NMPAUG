@@ -289,7 +289,7 @@ $wideTileTimeSize: $_app_small_font_size;
 
 .time-container h1 {
 	@include app_ellide;
-	font-family: $timeTitleFont;
+	font-family: tradebold;
 	font-size: $timeTitleSize;
 	margin: 0;
 }

@@ -476,6 +476,7 @@ $U.mediaCard.MediaCardCallToActionBar = ( function() {
 			break;
 		case BUTTON.FAVOURITES_ADD:
 		    iconHolder.className = "icon-heart-empty";
+		    iconHolder.style.color = '#FFFF00';      //JRM
 		   	if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnAddFavourites")));
 			}
@@ -503,6 +504,7 @@ $U.mediaCard.MediaCardCallToActionBar = ( function() {
 			break;
 		case BUTTON.BUY:
 			iconHolder.className = "icon-shopping-cart";
+			iconHolder.style.color = '#FFFF00';      //JRM
 			if (isTextRequired) {
 				actionButtonTextSpan.appendChild(document.createTextNode($U.core.util.StringHelper.getString("btnBuy")));
 			}

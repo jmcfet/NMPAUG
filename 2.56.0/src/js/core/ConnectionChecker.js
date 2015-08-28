@@ -107,7 +107,7 @@ $U.core.ConnectionChecker = ( function() {
 	function checkNetworkConnection(callback) {
 
 		$.get(("appInstalled" + "?" + new Date().getTime()) + "-" + Math.floor((Math.random() * 1000) + 1)).fail(function() {
-			callback(false);
+			callback(true);
 		}).success(function() {
 			callback(true);
 		});
